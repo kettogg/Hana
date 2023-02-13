@@ -1,0 +1,7 @@
+--[[
+  This is multiline comment ahahaha!
+--]]
+
+--var s = input()
+display("%s", input())
+--displayln()

@@ -1,0 +1,31 @@
+digraph "hana::Statement"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="{hana::Statement\n||+ ~Statement()\l+ getType()\l+ toString()\l+ Accept()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node2 [label="{hana::Expression\n||+ ~Expression()\l+ toString()\l+ Accept()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classhana_1_1_expression.html",tooltip=" "];
+  Node3 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node3 [label="{hana::Node\n||+ ~Node()\l+ codeGen()\l+ getType()\l+ toString()\l+ Accept()\l+ printError()\l+ printError()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classhana_1_1_node.html",tooltip=" "];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node4 [label="{hana::ArrayAddElement\n||+ ArrayAddElement()\l+ ~ArrayAddElement()\l+ codeGen()\l+ getType()\l+ toString()\l+ Accept()\l+ getLocation()\l+ getExpression()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classhana_1_1_array_add_element.html",tooltip=" "];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node5 [label="{hana::Assignment\n||+ Assignment()\l+ ~Assignment()\l+ codeGen()\l+ getType()\l+ toString()\l+ Accept()\l+ getExpression()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classhana_1_1_assignment.html",tooltip=" "];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node6 [label="{hana::ClassDeclaration\n||+ ClassDeclaration()\l+ ~ClassDeclaration()\l+ codeGen()\l+ getType()\l+ toString()\l+ Accept()\l+ getBlock()\l+ getIdentifier()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classhana_1_1_class_declaration.html",tooltip=" "];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node7 [label="{hana::Conditional\n||+ Conditional()\l+ ~Conditional()\l+ codeGen()\l+ getType()\l+ toString()\l+ Accept()\l+ getCompOperator()\l+ getThen()\l+ getElse()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classhana_1_1_conditional.html",tooltip=" "];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node8 [label="{hana::ExpressionStatement\n||+ ExpressionStatement()\l+ ~ExpressionStatement()\l+ codeGen()\l+ getType()\l+ getExpression()\l+ toString()\l+ Accept()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classhana_1_1_expression_statement.html",tooltip=" "];
+  Node1 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node9 [label="{hana::FunctionDeclaration\n||+ FunctionDeclaration()\l+ FunctionDeclaration()\l+ FunctionDeclaration()\l+ ~FunctionDeclaration()\l+ codeGen()\l+ getType()\l+ toString()\l+ Accept()\l+ getId()\l+ getParameter()\l+ getBody()\l+ getRetType()\l+ isTemplated()\l+ getlocation()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classhana_1_1_function_declaration.html",tooltip=" "];
+  Node1 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node10 [label="{hana::MethodCall\n||+ MethodCall()\l+ ~MethodCall()\l+ codeGen()\l+ getType()\l+ toString()\l+ Accept()\l+ getArguments()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classhana_1_1_method_call.html",tooltip=" "];
+  Node1 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node11 [label="{hana::Return\n||+ Return()\l+ ~Return()\l+ codeGen()\l+ getType()\l+ toString()\l+ Accept()\l+ getRetExpression()\l+ getLocation()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classhana_1_1_return.html",tooltip=" "];
+  Node1 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node12 [label="{hana::VariableDeclaration\n|# type\l# id\l# assignmentExpr\l# location\l|+ VariableDeclaration()\l+ VariableDeclaration()\l+ VariableDeclaration()\l+ VariableDeclaration()\l+ ~VariableDeclaration()\l+ codeGen()\l+ getType()\l+ toString()\l+ Accept()\l+ getIdentifierOfVariable()\land 6 more...\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classhana_1_1_variable_declaration.html",tooltip=" "];
+  Node1 -> Node13 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node13 [label="{hana::WhileLoop\n||+ WhileLoop()\l+ ~WhileLoop()\l+ codeGen()\l+ getType()\l+ toString()\l+ Accept()\l+ getCondition()\l+ getLoopBlock()\l+ getElseBlock()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classhana_1_1_while_loop.html",tooltip=" "];
+}
