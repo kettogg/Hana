@@ -3,4 +3,4 @@ Hana is an elegant, clean and minimalistic interpreted programming language insp
 
 *Wip...*
 
-*Doxygen Docs - [](https://syylvette.github.io/Hana/)*
+For now Doxygen docs - [Hana Documentation](https://syylvette.github.io/Hana/)
