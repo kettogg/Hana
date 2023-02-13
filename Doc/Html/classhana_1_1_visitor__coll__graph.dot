@@ -1,7 +1,0 @@
-digraph "hana::Visitor"
-{
- // LATEX_PDF_SIZE
-  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
-  node [fontname="Helvetica",fontsize="10",shape=record];
-  Node1 [label="{hana::Visitor\n||+ VisitExpression()\l+ VisitInteger()\l+ VisitDouble()\l+ VisitString()\l+ VisitBoolean()\l+ VisitIdentifier()\l+ VisitUnaryOperator()\l+ VisitBinaryOp()\l+ VisitCompOperator()\l+ VisitBlock()\land 14 more...\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
-}
