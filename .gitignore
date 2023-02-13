@@ -3,3 +3,5 @@
 Build/
 *.llvm
 config.h
+doxygen-awesome-css/
+Doxyfile
