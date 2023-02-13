@@ -3,6 +3,9 @@ Hana is an elegant, clean and minimalistic interpreted programming language insp
 
 ⚠️*Wip ...*
 
+*For now Doxygen docs* - [🌸 Hana Documentation](https://syylvette.github.io/Hana/)
+
+
 ## Basic Syntax
 
 ```
@@ -64,5 +67,3 @@ display("%s", "Idk..") -- C like scanf()
 displayln("%d", some-int) -- with Newline
 
 ```
-
-*For now Doxygen docs* - [🌸 Hana Documentation](https://syylvette.github.io/Hana/)
