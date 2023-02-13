@@ -3,3 +3,8 @@
 Build/
 *.llvm
 config.h
+.clang-format
+.editorconfig
+CMakeLists.txt
+Hana/
+Testing/

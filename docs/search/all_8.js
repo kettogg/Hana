@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['klassaddvariableaccess_44',['klassAddVariableAccess',['../classhana_1_1_code_gen_context.html#a9fa768e499f52aa56a60b119600d99ad',1,'hana::CodeGenContext']]]
+  ['identifier_41',['Identifier',['../classhana_1_1_identifier.html',1,'hana']]],
+  ['integer_42',['Integer',['../classhana_1_1_integer.html',1,'hana']]],
+  ['isclass_43',['isClass',['../classhana_1_1_code_gen_context.html#ab592c8613c21848f2f5465b62c23dccf',1,'hana::CodeGenContext']]],
+  ['iterator_44',['iterator',['../class_get_opt_1_1iterator.html',1,'GetOpt']]]
 ];

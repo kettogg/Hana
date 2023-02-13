@@ -1,0 +1,37 @@
+var annotated_dup =
+[
+    [ "hana", null, [
+      [ "Array", "classhana_1_1_array.html", "classhana_1_1_array" ],
+      [ "ArrayAccess", "classhana_1_1_array_access.html", "classhana_1_1_array_access" ],
+      [ "ArrayAddElement", "classhana_1_1_array_add_element.html", "classhana_1_1_array_add_element" ],
+      [ "Assignment", "classhana_1_1_assignment.html", "classhana_1_1_assignment" ],
+      [ "Node", "classhana_1_1_node.html", "classhana_1_1_node" ],
+      [ "Expression", "classhana_1_1_expression.html", "classhana_1_1_expression" ],
+      [ "Statement", "classhana_1_1_statement.html", "classhana_1_1_statement" ],
+      [ "Integer", "classhana_1_1_integer.html", "classhana_1_1_integer" ],
+      [ "Double", "classhana_1_1_double.html", "classhana_1_1_double" ],
+      [ "String", "classhana_1_1_string.html", "classhana_1_1_string" ],
+      [ "Boolean", "classhana_1_1_boolean.html", "classhana_1_1_boolean" ],
+      [ "Identifier", "classhana_1_1_identifier.html", "classhana_1_1_identifier" ],
+      [ "Block", "classhana_1_1_block.html", "classhana_1_1_block" ],
+      [ "ExpressionStatement", "classhana_1_1_expression_statement.html", "classhana_1_1_expression_statement" ],
+      [ "BinaryOp", "classhana_1_1_binary_op.html", "classhana_1_1_binary_op" ],
+      [ "ClassDeclaration", "classhana_1_1_class_declaration.html", "classhana_1_1_class_declaration" ],
+      [ "CodeGenBlock", "classhana_1_1_code_gen_block.html", "classhana_1_1_code_gen_block" ],
+      [ "CodeGenContext", "classhana_1_1_code_gen_context.html", "classhana_1_1_code_gen_context" ],
+      [ "CompOperator", "classhana_1_1_comp_operator.html", "classhana_1_1_comp_operator" ],
+      [ "Conditional", "classhana_1_1_conditional.html", "classhana_1_1_conditional" ],
+      [ "VariableDeclaration", "classhana_1_1_variable_declaration.html", "classhana_1_1_variable_declaration" ],
+      [ "FunctionDeclaration", "classhana_1_1_function_declaration.html", "classhana_1_1_function_declaration" ],
+      [ "MethodCall", "classhana_1_1_method_call.html", "classhana_1_1_method_call" ],
+      [ "Range", "classhana_1_1_range.html", "classhana_1_1_range" ],
+      [ "Return", "classhana_1_1_return.html", "classhana_1_1_return" ],
+      [ "UnaryOperator", "classhana_1_1_unary_operator.html", "classhana_1_1_unary_operator" ],
+      [ "Visitor", "classhana_1_1_visitor.html", "classhana_1_1_visitor" ],
+      [ "VisitorPrettyPrint", "classhana_1_1_visitor_pretty_print.html", "classhana_1_1_visitor_pretty_print" ],
+      [ "VisitorSyntaxCheck", "classhana_1_1_visitor_syntax_check.html", "classhana_1_1_visitor_syntax_check" ],
+      [ "WhileLoop", "classhana_1_1_while_loop.html", "classhana_1_1_while_loop" ]
+    ] ],
+    [ "GetOpt", "class_get_opt.html", "class_get_opt" ],
+    [ "YYLTYPE", "struct_y_y_l_t_y_p_e.html", "struct_y_y_l_t_y_p_e" ]
+];
