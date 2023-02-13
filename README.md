@@ -49,8 +49,8 @@ boolean flag = false
 string s = 'This is a string.'
 
 -- Or, Javascript way
-let n = 1     # deduce to int
-let sayHi = "Hello" # deduce to string.
+let n = 1     
+let sayHi = "Hello" 
 
 -- Follows python indentation
 Stmt
