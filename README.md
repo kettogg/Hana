@@ -5,6 +5,23 @@ Hana is an elegant, clean and minimalistic interpreted programming language insp
 
 *For now Doxygen docs* - [🌸 Hana Documentation](https://syylvette.github.io/Hana/)
 
+## Deps
+* cmake >=3.12
+* flex
+* bison
+* LLVM 14*
+
+## Building the interpreter
+
+```
+git clone https://github.com/syylvette/Hana.git
+cd Hana
+mkdir Build && cd Build
+cmake ../Hana && make
+
+## Generates a binary 'hana' in Build/Hana directory
+./hana -h  ## Lists the usage
+```
 
 ## Basic Syntax
 
