@@ -1,6 +1,7 @@
 *.vscode
 *.output
 Build/
+build/
 *.llvm
 config.h
 doxygen-awesome-css/

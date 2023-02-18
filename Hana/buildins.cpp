@@ -27,6 +27,12 @@ extern "C" DECLSPEC char* input()
    return tmp;
 }
 
+// For comparing two Strings
+extern "C" DECLSPEC int compStr(char* str1, char* str2){
+   if(!std::strcmp(str1, str2)) return 1;
+   return 0;
+}
+
 extern "C" DECLSPEC int printvalue(int val)
 {
    std::cout << "IDEBUG: " << val << "\n";
@@ -65,12 +71,12 @@ extern "C" DECLSPEC double sinus(double val)
    return std::sin(val);
 }
 
-extern "C" DECLSPEC int read(char* fmt, ...)
-{
-   int rc;
-   va_list argp;
-   va_start(argp, fmt);
-   rc = vscanf(fmt, argp);
-   va_end(argp);
-   return (rc);
-}
+//extern "C" DECLSPEC int read(char* fmt, ...)
+//{
+//   int rc;
+//   va_list argp;
+//   va_start(argp, fmt);
+//   rc = vscanf(fmt, argp);
+//   va_end(argp);
+//   return (rc);
+//}

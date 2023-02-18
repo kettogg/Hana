@@ -64,10 +64,18 @@ void CodeGenContext::setupBuiltIns()
    llvmTypeMap["void"] = voidType;
    llvmTypeMap["var"] = varType;
 
-   std::vector<Type*> argTypesOneInt(1, intType);
-   FunctionType* ft = FunctionType::get(intType, argTypesOneInt, false);
-   Function* f = Function::Create(ft, Function::ExternalLinkage, MAKE_LLVM_EXTERNAL_NAME(printvalue), getModule());
+   std::vector<Type*> argTypesTwoStrings(2, stringType);
+   FunctionType* ft = FunctionType::get(getGenericIntegerType(), argTypesTwoStrings, false);
+   Function* f = Function::Create(ft, Function::ExternalLinkage, MAKE_LLVM_EXTERNAL_NAME(compStr), getModule());
    Function::arg_iterator i = f->arg_begin();
+   if( i != f->arg_end() )
+      i->setName("format_str");
+   builtins.push_back({f, (int*)compStr});
+
+   std::vector<Type*> argTypesOneInt(1, intType);
+   ft = FunctionType::get(intType, argTypesOneInt, false);
+   f = Function::Create(ft, Function::ExternalLinkage, MAKE_LLVM_EXTERNAL_NAME(printvalue), getModule());
+   // Function::arg_iterator i = f->arg_begin(); // Already defined in the above function
    if( i != f->arg_end() )
       i->setName("val");
    builtins.push_back({f, (void*)printvalue});
@@ -104,7 +112,7 @@ void CodeGenContext::setupBuiltIns()
 
    ft = FunctionType::get(Type::getInt8PtrTy(getGlobalContext()), false);
    f = Function::Create(ft, Function::ExternalLinkage, MAKE_LLVM_EXTERNAL_NAME(input), getModule());
-   builtins.push_back({f, (void*)input});
+   builtins.push_back({f, (string*)input});
 
    // ft = FunctionType::get(intType, argTypesInt8Ptr, true);
    // f = Function::Create(ft, Function::ExternalLinkage, MAKE_LLVM_EXTERNAL_NAME(read), getModule());

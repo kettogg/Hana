@@ -16,6 +16,8 @@
  */
 // extern "C" DECLSPEC int read(char* fmt, ...); -> Not Working!
 
+extern "C" DECLSPEC int compStr(char* str1, char* str2);
+
 extern "C" DECLSPEC char* input();
 
 /*! Prints an integer value.

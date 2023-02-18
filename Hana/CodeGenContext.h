@@ -247,7 +247,9 @@ private:
     * - sin
     * - displayln
     * - display
-    * - read // NOT WORKING ...
+    * - read :: NOT WORKING ...
+    * - input :: Basically a getLine that could get a line as string ONLY
+    * - compStr
     */
    void setupBuiltIns();
 

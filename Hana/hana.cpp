@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <sstream>
-#include <stdio.h>
+#include <cstdio>
 #include <cassert>
 #include <stack>
 #include "config.h"

@@ -2,6 +2,12 @@
   This is multiline comment ahahaha!
 --]]
 
+--let s1 = "Hello"
+--let s2 = "Hello"
+
+let value = compStr("Hello","Hello")
+display("%d", value)
+
 --var s = input()
-display("%s", input())
+--display("%s", input())
 --displayln()
