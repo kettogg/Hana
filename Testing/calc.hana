@@ -1,0 +1,55 @@
+--[[ Calculator program for Hana --]]
+
+fn info()
+    writeln("\n[*] Simple Calculator in Hana")
+    writeln("--  Please select an option:")
+    writeln("--             1 : Addition")
+    writeln("--             2 : Subtract")
+    writeln("--             3 : Multiply")
+    writeln("--             4 : Division")
+    writeln("--             5 : Sine")
+    return
+
+fn Add(double x, double y)
+    double sum = x + y
+    writefloat(sum)
+    return
+
+fn Sub(double x, double y)
+    double sub = x - y
+    writefloat(sub)
+    return
+
+fn Mul(double x, double y)
+    double mul = x * y
+    writefloat(mul)
+    return
+
+fn Div(int x, int y)
+    let div = x/y
+    writeln("%d", div)
+    return
+
+fn Sin(double x)
+    double sine = sinus(x)
+    writefloat(sine)
+    return
+
+fn calculator()
+    info()
+    let opt = readint()
+    if opt==1
+        Add(readfloat(),readfloat())
+    if opt==2
+        Sub(readfloat(),readfloat())
+    if opt==3
+        Mul(readfloat(),readfloat())
+    if opt==4
+        Div(readint(),readint())
+    if opt==5
+        Sin(readfloat())
+    else
+        writeln("** Invalid Option!")
+    return
+
+calculator()

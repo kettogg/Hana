@@ -1,0 +1,42 @@
+--[[ Fibonacci Series using Hana --]]
+
+-- Using Recursion
+
+fn recfibonacci(let n) : int
+    if n <= 1
+        return n
+    else
+        let f1 = recfibonacci(n - 1)
+        let f2 = recfibonacci(n - 2)
+        return f1 + f2
+
+fn itrfibonacci(let n) : int
+    if n == 0
+        return n
+    if n == 1
+        return n
+    int prevPrev = 0
+    int prev = 1
+    int currNumber
+
+    int i = 1
+    while i < n
+        i = i + 1
+        currNumber = prevPrev + prev
+        prevPrev = prev
+        prev = currNumber
+    return currNumber
+
+
+writeln("\n[*] Fibonacci in Hana")
+write("-- Enter a Number: ")
+let num = readint()
+
+let itrres = itrfibonacci(num)
+let recres = recfibonacci(num)
+
+write("-- Recursive Fibonacci Result: ")
+writeint(itrres)
+
+write("-- Iterative Fibonacci Result: ")
+writeint(recres)

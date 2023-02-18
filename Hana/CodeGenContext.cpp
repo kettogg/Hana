@@ -66,30 +66,30 @@ void CodeGenContext::setupBuiltIns()
 
    std::vector<Type*> argTypesTwoStrings(2, stringType);
    FunctionType* ft = FunctionType::get(getGenericIntegerType(), argTypesTwoStrings, false);
-   Function* f = Function::Create(ft, Function::ExternalLinkage, MAKE_LLVM_EXTERNAL_NAME(compStr), getModule());
+   Function* f = Function::Create(ft, Function::ExternalLinkage, MAKE_LLVM_EXTERNAL_NAME(compstr), getModule());
    Function::arg_iterator i = f->arg_begin();
    if( i != f->arg_end() )
       i->setName("format_str");
-   builtins.push_back({f, (int*)compStr});
+   builtins.push_back({f, (int*)compstr});
 
    std::vector<Type*> argTypesOneInt(1, intType);
    ft = FunctionType::get(intType, argTypesOneInt, false);
-   f = Function::Create(ft, Function::ExternalLinkage, MAKE_LLVM_EXTERNAL_NAME(printvalue), getModule());
+   f = Function::Create(ft, Function::ExternalLinkage, MAKE_LLVM_EXTERNAL_NAME(writeint), getModule());
    // Function::arg_iterator i = f->arg_begin(); // Already defined in the above function
    if( i != f->arg_end() )
       i->setName("val");
-   builtins.push_back({f, (void*)printvalue});
+   builtins.push_back({f, (void*)writeint});
 
    std::vector<Type*> argTypesOneDouble(1, Type::getDoubleTy(getGlobalContext()));
    ft = FunctionType::get(Type::getDoubleTy(getGlobalContext()), argTypesOneDouble, false);
-   f = Function::Create(ft, Function::ExternalLinkage, MAKE_LLVM_EXTERNAL_NAME(printdouble), getModule());
+   f = Function::Create(ft, Function::ExternalLinkage, MAKE_LLVM_EXTERNAL_NAME(writefloat), getModule());
    i = f->arg_begin();
    if( i != f->arg_end() )
       i->setName("val");
-   builtins.push_back({f, (void*)printdouble});
+   builtins.push_back({f, (void*)writefloat});
 
    ft = FunctionType::get(Type::getDoubleTy(getGlobalContext()), argTypesOneDouble, false);
-   f = Function::Create(ft, Function::ExternalLinkage, MAKE_LLVM_EXTERNAL_NAME(sin), getModule());
+   f = Function::Create(ft, Function::ExternalLinkage, MAKE_LLVM_EXTERNAL_NAME(sinus), getModule());
    i = f->arg_begin();
    if( i != f->arg_end() )
       i->setName("val");
@@ -97,22 +97,30 @@ void CodeGenContext::setupBuiltIns()
 
    std::vector<Type*> argTypesInt8Ptr(1, Type::getInt8PtrTy(getGlobalContext()));
    ft = FunctionType::get(Type::getVoidTy(getGlobalContext()), argTypesInt8Ptr, true);
-   f = Function::Create(ft, Function::ExternalLinkage, MAKE_LLVM_EXTERNAL_NAME(display), getModule());
+   f = Function::Create(ft, Function::ExternalLinkage, MAKE_LLVM_EXTERNAL_NAME(write), getModule());
    i = f->arg_begin();
    if( i != f->arg_end() )
       i->setName("format_str");
-   builtins.push_back({f, (void*)display});
+   builtins.push_back({f, (void*)write});
 
    ft = FunctionType::get(Type::getVoidTy(getGlobalContext()), argTypesInt8Ptr, true);
-   f = Function::Create(ft, Function::ExternalLinkage, MAKE_LLVM_EXTERNAL_NAME(displayln), getModule());
+   f = Function::Create(ft, Function::ExternalLinkage, MAKE_LLVM_EXTERNAL_NAME(writeln), getModule());
    i = f->arg_begin();
    if( i != f->arg_end() )
       i->setName("format_str");
-   builtins.push_back({f, (void*)displayln});
+   builtins.push_back({f, (void*)writeln});
 
    ft = FunctionType::get(Type::getInt8PtrTy(getGlobalContext()), false);
-   f = Function::Create(ft, Function::ExternalLinkage, MAKE_LLVM_EXTERNAL_NAME(input), getModule());
-   builtins.push_back({f, (string*)input});
+   f = Function::Create(ft, Function::ExternalLinkage, MAKE_LLVM_EXTERNAL_NAME(read), getModule());
+   builtins.push_back({f, (string*)read});
+
+   ft = FunctionType::get(intType, false);
+   f = Function::Create(ft, Function::ExternalLinkage, MAKE_LLVM_EXTERNAL_NAME(readint), getModule());
+   builtins.push_back({f, (int*)readint});
+
+   ft = FunctionType::get(doubleType, false);
+   f = Function::Create(ft, Function::ExternalLinkage, MAKE_LLVM_EXTERNAL_NAME(readfloat), getModule());
+   builtins.push_back({f, (double*)readfloat});
 
    // ft = FunctionType::get(intType, argTypesInt8Ptr, true);
    // f = Function::Create(ft, Function::ExternalLinkage, MAKE_LLVM_EXTERNAL_NAME(read), getModule());
@@ -124,7 +132,7 @@ void CodeGenContext::setupBuiltIns()
 
 bool CodeGenContext::generateCode(Block& root)
 {
-   outs << "- Generating code...\n";
+   outs << ":: Generating code...\n";
 
    /* Create the top level interpreter function to call as entry */
    vector<Type*> argTypes;
@@ -136,7 +144,7 @@ bool CodeGenContext::generateCode(Block& root)
    newScope(bblock);
    root.codeGen(*this); /* emit byte code for the top level block */
    if( errors ) {
-      outs << "* Compilation error(s). Aborted.\n";
+      outs << "** Compilation error(s). Aborted.\n";
       return false;
    }
    if( currentBlock()->getTerminator() == nullptr ) {
@@ -144,11 +152,11 @@ bool CodeGenContext::generateCode(Block& root)
    }
    endScope();
 
-   outs << "- Code is generated.\n";
+   outs << ":: Code generated.\n";
 
-   outs << "- Verifying... ";
+   outs << ":: Verifying... ";
    if( verifyModule(*getModule()) ) {
-      outs << ": Error constructing function!\n";
+      outs << "** Error constructing function!\n";
 #if !defined(LLVM_NO_DUMP)
       module->dump();
 #endif
@@ -171,7 +179,7 @@ bool CodeGenContext::generateCode(Block& root)
 
 GenericValue CodeGenContext::runCode()
 {
-   outs << "- Running code...\n";
+   outs << ":: Running code...\n";
    std::string err;
    ExecutionEngine* ee = EngineBuilder(std::unique_ptr<Module>(module)).setErrorStr(&err).setEngineKind(EngineKind::JIT).create();
    assert(ee);
@@ -182,7 +190,7 @@ GenericValue CodeGenContext::runCode()
    ee->finalizeObject();
    vector<GenericValue> noargs;
    GenericValue v = ee->runFunction(mainFunction, noargs);
-   outs << "\n- Code executed successfully :)\n";
+   outs << "\nHana :: Code executed successfully :)\n";
    delete ee;
    return v;
 }
@@ -195,7 +203,7 @@ void CodeGenContext::printCodeGeneration(class Block& root, std::ostream& outstr
 
 void CodeGenContext::optimize()
 {
-   outs << "- Optimize code...\n";
+   outs << ":: Optimizing code...\n";
    legacy::FunctionPassManager fpm(getModule());
    PassManagerBuilder builder;
    builder.OptLevel = 3;

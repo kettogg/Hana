@@ -242,13 +242,13 @@ private:
    void setCurrentBlock(llvm::BasicBlock* block) { codeBlocks.front()->setCodeBlock(block); }
 
    /*! Setup up the built in functions and types:
-    * - printvalue
-    * - printdouble
-    * - sin
-    * - displayln
-    * - display
+    * - write
+    * - writeInt
+    * - sinus
+    * - writeln
+    * -
     * - read :: NOT WORKING ...
-    * - input :: Basically a getLine that could get a line as string ONLY
+    * - writeInt :: Basically a getLine that could get a line as string ONLY
     * - compStr
     */
    void setupBuiltIns();
