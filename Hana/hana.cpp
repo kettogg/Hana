@@ -20,6 +20,31 @@ extern int parsing_error;
 
 void usage();
 
+
+/**
+ *
+ * File Extension Check
+ * BUG = Can't add path to files lol, Fix it!
+ */
+bool fileCheck(std::string &str){
+   int i=0;
+   while(str[i]!='.' && i<str.length()){
+      i++;
+   }
+   std::string temp="";
+   for(int j=i+1;j<str.length();j++){
+      temp+=str[j];
+   }
+   if(temp=="hana") return 1;
+   return 0;
+}
+
+/**
+ *
+ * Main Function
+ *
+ */
+
 int main(int argc, char** argv)
 {
    std::string fileName;
@@ -27,7 +52,7 @@ int main(int argc, char** argv)
       // No argument passed Haha!
       // fileName = "./Idk.hana";
       std::cout << "Hana version " << MAJOR_VER << "." << MINOR_VER << "." << REVISION_VER << "\n";
-      std::cout << "Use 'hana -h' for more information, Noob.\n";
+      std::cout << "Use 'hana -h' for more information.\n";
    }
 
    libPaths.push_back("./"); // Current path
@@ -72,13 +97,20 @@ int main(int argc, char** argv)
    }
 
    if( !quiet ) {
-      std::cout << "========================\n";
+      std::cout << "\n========================\n";
       std::cout << "   Hana version " << MAJOR_VER << "." << MINOR_VER << "." << REVISION_VER << "\n";
       std::cout << "========================\n";
    }
    auto files = getopt.getRemainingArguments();
    assert(files.size() == 1);
    fileName = files[0]; // Currently only one file is supported.
+
+   // Check the file extension
+   bool flag = fileCheck(fileName);
+   if(!flag) {
+      std:: cout<<"** Invalid File Extension, Hana files must have a format of <filename>.hana\n\n";
+      exit(0);
+   }
 
    yyin = fopen(fileName.c_str(), "r+");
    if( yyin == nullptr ) {

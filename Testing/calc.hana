@@ -48,8 +48,6 @@ fn calculator()
         Div(readint(),readint())
     if opt==5
         Sin(readfloat())
-    else
-        writeln("** Invalid Option!")
     return
 
 calculator()

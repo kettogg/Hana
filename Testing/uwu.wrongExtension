@@ -1,0 +1,14 @@
+--[[
+  This is multiline comment ahahaha!
+--]]
+
+--Working!
+let s1 = input()
+let s2 = input()
+
+let value = compStr(s1,s2)
+display("%d", value)
+
+--var s = input()
+--display("%s", input())
+--displayln()
