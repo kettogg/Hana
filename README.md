@@ -1,15 +1,18 @@
 <h1 align="center">Usage</h1>
 Hana is an elegant, clean and minimalistic interpreted programming language inspired from lua, python and javascript &lt;3
 
-⚠️*Wip ...*
+⚠️ *Wip ...*
 
 *For now Doxygen docs* - [🌸 Hana Documentation](https://syylvette.github.io/Hana/)
 
 <h2 align="center">Deps</h2>
-* cmake >= 3.12
-* flex
-* bison
-* LLVM 14
+
+<ul>
+<li>cmake >= 3.12</li>
+<li>flex</li>
+<li>bison</li>
+<li>LLVM (version 14.0.6)</li>
+</ul>
 
 <h2 align="center">Building the interpreter</h2>
 
