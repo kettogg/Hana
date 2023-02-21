@@ -1,86 +1,127 @@
-# Hana
+<h1 align="center">Usage</h1>
 Hana is an elegant, clean and minimalistic interpreted programming language inspired from lua, python and javascript &lt;3
 
 ⚠️*Wip ...*
 
 *For now Doxygen docs* - [🌸 Hana Documentation](https://syylvette.github.io/Hana/)
 
-## Deps
-* cmake >=3.12
+<h2 align="center">Deps</h2>
+* cmake >= 3.12
 * flex
 * bison
-* LLVM 14*
+* LLVM 14
 
-## Building the interpreter
+<h2 align="center">Building the interpreter</h2>
 
 ```
 git clone https://github.com/syylvette/Hana.git
 cd Hana
 mkdir Build && cd Build
-cmake ../Hana && make
+cmake .. && make
 
 ## Generates a binary 'hana' in Build/Hana directory
 ./hana -h  ## Lists the usage
 ```
 
-## Basic Syntax
+<h2 align="center">Usage</h2>
+
+<h4 align="left">Create a hana file - <code>hello.hana</code></h4>
+
+```py
+writeln("Hello World!")
+```
+
+<h4 align="left">Run</h4>
+
+Using the hana interpreter
+```sh
+hana hello.hana
+```
+
+<h4 align="left">Output</h4>
 
 ```
--- Single line comment (Lua dope lol)
---[[ 
-    Multi-line Comment 
---]]
+Hello World!
+```
 
-let x = 10
-let s = "Hellow"
+<h2 align="center">Docuwumentation</h2>
 
-let y
-y = true
+<h3 align="center">General</h3>
 
-if condition
-    Do-something
-else
-    Do-something-else
+<p align="center"><code>hana -h</code> Opens the Hana help menu.</p>
 
-while i > 0
-  i = i - 1
-  Do-something
-else
-  display("Terminated")
+<h3 align="center">Variables</h3>
+<p align="center">Variables can be decluwuared using the keyword <code>let</code> or by using their types <code>int</code> <code>double</code> <code>string</code> <code>boolean</code>.</p>
 
-fn myFunction(type param1, type param2) : return-type
-  Statements
-  return expression
+```py
+let baka = 100
+let tehe = "hahahah"
+let chan = 25
+let baka = baka + 1
+let chan = chan * 2
 
-fn myFunction()
-  Statements
+writeln(tehe)
+writeln("%d", baka)
+writeln("%d", chan) -- Basically just a scanf alias 
+```
 
-fn myFunction(let param1, let param2)
-  Statements
-  return expression
-
-int x = 1
-int y = 2 
-int sum = x+y
-boolean flag = false
-string s = 'This is a string.'
-
--- Or, Javascript way
-let n = 1     
-let sayHi = "Hello" 
-
--- Follows python indentation
-Stmt
-  Stmt
-    Stmt
-  Stmt
-Stmt
-
-input() -- Takes a string only as of now
-
-display("%s", input())
-
-display("%s", "Idk..") -- C like scanf() 
-displayln("%d", some-int) -- with Newline
+<h4 align="left">Ouwutpuwut</h4>
 
 ```
+500
+101
+50
+```
+
+<h3 align="center">Conditionals</h3>
+
+```py
+if《condition》
+  《statements》
+else《condition》
+  《statements》
+
+-- No else if supported now
+```
+
+<h3 align="center">Loops</h3>
+
+```py
+let c = 5
+while c > 0
+    writeln("UwU")
+    c = c - 1
+else
+    writeln("Boom")
+```
+
+<h4 align="left">Output</h4>
+
+```
+UwU
+UwU
+UwU
+UwU
+UwU
+Boom
+```
+
+<h3 align="center">Functions</h3>
+
+```py
+fn funcName(《parameters》) : 《returnType》
+    《statements》
+    return 《nothing/something》
+```
+
+---
+
+> ReadMe [credit](https://github.com/virejdasani/pythOwO)
+
+
+
+
+
+
+
+
