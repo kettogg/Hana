@@ -8,7 +8,7 @@
 #pragma warning(pop)
 #endif
 
-#include "AstNode.h"
+#include "../AST/AstNode.h"
 #include "CodeGenContext.h"
 #include "parser.hpp"
 #include "ClassDeclaration.h"

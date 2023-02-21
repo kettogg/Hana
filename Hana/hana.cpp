@@ -6,9 +6,9 @@
 #include <cassert>
 #include <stack>
 #include "config.h"
-#include "CodeGenContext.h"
-#include "AstNode.h"
-#include "GetOpt.h"
+#include "CodeGen/CodeGenContext.h"
+#include "AST/AstNode.h"
+#include "CodeGen/GetOpt.h"
 
 extern int yyparse();
 extern int yylex_destroy();

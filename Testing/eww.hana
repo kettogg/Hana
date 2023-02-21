@@ -1,6 +1,6 @@
 --[[ Some comment --]]
 
---let s = input()
+--let s = read()
 --displayln("%s", s)
 --NOT WORKING WITH *LLVM-15*: NEEDS FIX - llvm::Type* llvm::Type::getNonOpaquePointerElementType()
 --            const: Assertion `NumContainedTys && "Attempting to get element type of opaque pointer"' failed.

@@ -1,7 +1,7 @@
 #ifndef FUNCTION_DECLARATION_H
 #define FUNCTION_DECLARATION_H
 
-#include "AstNode.h"
+#include "../AST/AstNode.h"
 
 namespace hana {
 

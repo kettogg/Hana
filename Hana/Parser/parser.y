@@ -5,22 +5,22 @@
 }
 
 %{
-    #include "AstNode.h"
-    #include "FunctionDeclaration.h"
-    #include "ClassDeclaration.h"
-    #include "Return.h"
-    #include "FunctionDeclaration.h"
-    #include "ClassDeclaration.h"
-    #include "Conditional.h"
-    #include "UnaryOperator.h"
-    #include "BinaryOperator.h"
-    #include "CompareOperator.h"
-    #include "Assignment.h"
-    #include "MethodCall.h"
-    #include "Declaration.h"
-    #include "WhileLoop.h"
-    #include "Array.h"
-    #include "Range.h"
+    #include "AST/AstNode.h"
+    #include "CodeGen/FunctionDeclaration.h"
+    #include "CodeGen/ClassDeclaration.h"
+    #include "CodeGen/Return.h"
+    #include "CodeGen/FunctionDeclaration.h"
+    #include "CodeGen/ClassDeclaration.h"
+    #include "CodeGen/Conditional.h"
+    #include "CodeGen/UnaryOperator.h"
+    #include "CodeGen/BinaryOperator.h"
+    #include "CodeGen/CompareOperator.h"
+    #include "CodeGen/Assignment.h"
+    #include "CodeGen/MethodCall.h"
+    #include "CodeGen/Declaration.h"
+    #include "CodeGen/WhileLoop.h"
+    #include "CodeGen/Array.h"
+    #include "CodeGen/Range.h"
 
     #include <stdio.h>
     #include <stack>

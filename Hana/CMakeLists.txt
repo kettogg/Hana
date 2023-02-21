@@ -68,60 +68,60 @@ llvm_map_components_to_libnames(REQ_LLVM_LIBRARIES mcjit interpreter native ipo)
 # #########################################
 set(SOURCES
     hana.cpp
-    buildins.cpp
-    AstNode.cpp
-    Array.cpp
-    Declaration.cpp
-    FunctionDeclaration.cpp
-    ClassDeclaration.cpp
-    CodeGenContext.cpp
-    VisitorSyntaxCheck.cpp
-    VisitorPrettyPrint.cpp
-    tokens.l
-    parser.y
-    GetOpt.cpp
-    Range.cpp
-    BinaryOperator.cpp
-    UnaryOperator.cpp
-    CompareOperator.cpp
-    Return.cpp
-    WhileLoop.cpp
-    Conditional.cpp
-    Assignment.cpp
-    MethodCall.cpp
+        Builtins/buildins.cpp
+        AST/AstNode.cpp
+        CodeGen/Array.cpp
+        CodeGen/Declaration.cpp
+        CodeGen/FunctionDeclaration.cpp
+        CodeGen/ClassDeclaration.cpp
+        CodeGen/CodeGenContext.cpp
+        Visitor/VisitorSyntaxCheck.cpp
+        Visitor/VisitorPrettyPrint.cpp
+        Lexer/tokens.l
+        Parser/parser.y
+        CodeGen/GetOpt.cpp
+        CodeGen/Range.cpp
+        CodeGen/BinaryOperator.cpp
+        CodeGen/UnaryOperator.cpp
+        CodeGen/CompareOperator.cpp
+        CodeGen/Return.cpp
+        CodeGen/WhileLoop.cpp
+        CodeGen/Conditional.cpp
+        CodeGen/Assignment.cpp
+        CodeGen/MethodCall.cpp
 )
 
 set(HEADERS
-    buildins.h
-    AstNode.h
-    Array.h
-    Declaration.h
-    FunctionDeclaration.h
-    ClassDeclaration.h
-    CodeGenContext.h
-    Visitor.h
-    VisitorSyntaxCheck.h
-    VisitorPrettyPrint.h
-    GetOpt.h
-    BinaryOperator.h
-    UnaryOperator.h
-    CompareOperator.h
-    Range.h
-    Return.h
-    WhileLoop.h
-    Conditional.h
-    Assignment.h
-    MethodCall.h
+        Builtins/buildins.h
+        AST/AstNode.h
+        CodeGen/Array.h
+        CodeGen/Declaration.h
+        CodeGen/FunctionDeclaration.h
+        CodeGen/ClassDeclaration.h
+        CodeGen/CodeGenContext.h
+        Visitor/Visitor.h
+        Visitor/VisitorSyntaxCheck.h
+        Visitor/VisitorPrettyPrint.h
+        CodeGen/GetOpt.h
+        CodeGen/BinaryOperator.h
+        CodeGen/UnaryOperator.h
+        CodeGen/CompareOperator.h
+        CodeGen/Range.h
+        CodeGen/Return.h
+        CodeGen/WhileLoop.h
+        CodeGen/Conditional.h
+        CodeGen/Assignment.h
+        CodeGen/MethodCall.h
 )
 
 set(VER_MAJ 0)
-set(VER_MIN 1)
+set(VER_MIN 2)
 set(VER_REV 0)
 
 configure_file(config.in ${Hana_SOURCE_DIR}/config.h)
 
-BISON_TARGET(HanaParser parser.y ${CMAKE_CURRENT_BINARY_DIR}/parser.cpp COMPILE_FLAGS --report=solved COMPILE_FLAGS --feature=fixit)
-FLEX_TARGET(HanaScanner tokens.l ${CMAKE_CURRENT_BINARY_DIR}/tokens.cpp)
+BISON_TARGET(HanaParser Parser/parser.y ${CMAKE_CURRENT_BINARY_DIR}/parser.cpp COMPILE_FLAGS --report=solved COMPILE_FLAGS --feature=fixit)
+FLEX_TARGET(HanaScanner Lexer/tokens.l ${CMAKE_CURRENT_BINARY_DIR}/tokens.cpp)
 ADD_FLEX_BISON_DEPENDENCY(HanaScanner HanaParser)
 
 add_executable(hana ${SOURCES} ${HEADERS} ${BISON_HanaParser_OUTPUTS} ${FLEX_HanaScanner_OUTPUTS})

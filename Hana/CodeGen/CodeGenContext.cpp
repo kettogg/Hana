@@ -1,6 +1,6 @@
 
 #include <typeinfo>
-#include "AstNode.h"
+#include "../AST/AstNode.h"
 #include "CodeGenContext.h"
 #include "parser.hpp"
 #include "llvm/Support/DynamicLibrary.h"
@@ -15,9 +15,9 @@
 #include <algorithm>
 #include <cmath>
 
-#include "buildins.h"
-#include "VisitorSyntaxCheck.h"
-#include "VisitorPrettyPrint.h"
+#include "../Builtins/buildins.h"
+#include "../Visitor/VisitorSyntaxCheck.h"
+#include "../Visitor/VisitorPrettyPrint.h"
 
 using namespace std;
 using namespace llvm;

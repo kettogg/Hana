@@ -3,12 +3,12 @@
 --]]
 
 --Working!
-let s1 = input()
-let s2 = input()
+let s1 = read()
+let s2 = read()
 
-let value = compStr(s1,s2)
-display("%d", value)
+let value = compstr(s1,s2)
+write("%d", value)
 
---var s = input()
---display("%s", input())
---displayln()
+--let s = read()
+--write("%s", read())
+--writeln()

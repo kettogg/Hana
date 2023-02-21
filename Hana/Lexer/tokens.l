@@ -1,7 +1,7 @@
 %{
 #include <string>
 #include <stack>
-#include "AstNode.h"
+#include "AST/AstNode.h"
 #include "parser.hpp"
 #define SAVE_TOKEN yylval.string = new std::string(yytext, yyleng)
 #define SAVE_INTEGER yylval.integer = std::stoll(std::string(yytext, yyleng))

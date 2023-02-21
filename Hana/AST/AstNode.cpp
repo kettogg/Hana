@@ -1,7 +1,7 @@
 #include <typeinfo>
 #include <sstream>
 #include "AstNode.h"
-#include "CodeGenContext.h"
+#include "../CodeGen/CodeGenContext.h"
 #include "parser.hpp"
 
 

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "config.h"
+#include "../config.h"
 
 #include <vector>
 #include <map>
@@ -31,7 +31,7 @@
 #pragma warning(pop)
 #endif
 
-#include "AstNode.h"
+#include "../AST/AstNode.h"
 
 namespace hana {
 ///< Used to keep track the context of a code block.

@@ -1,7 +1,7 @@
 #ifndef INC_ASTNODE_H
 #define INC_ASTNODE_H
 
-#include "hana.h"
+#include "../hana.h"
 
 #include <iostream>
 #include <vector>
@@ -20,7 +20,7 @@
 #pragma warning(pop)
 #endif
 
-#include "Visitor.h"
+#include "../Visitor/Visitor.h"
 
 struct YYLTYPE {
    int first_line {0};
