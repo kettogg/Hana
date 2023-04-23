@@ -1,15 +1,14 @@
 #pragma once
 
 #if defined(_MSC_VER)
-#define DECLSPEC __declspec(dllexport) 
+#define DECLSPEC __declspec(dllexport)
 #else
-#define DECLSPEC 
+#define DECLSPEC
 #endif
 
 /*
  *! Some Stl functions for Hana
  */
-
 
 /**
  * TODO ...
@@ -21,15 +20,15 @@
  */
 extern "C" DECLSPEC double sinus(double val);
 
-extern "C" DECLSPEC int compstr(char* str1, char* str2);
+extern "C" DECLSPEC int compstr(char *str1, char *str2);
 
-extern "C" DECLSPEC char* read();
+extern "C" DECLSPEC char *read();
 
 extern "C" DECLSPEC int readint();
 
 extern "C" DECLSPEC double readflt();
 
-//extern "C" DECLSPEC int
+// extern "C" DECLSPEC int
 /*! Prints an integer value.
  * \param[in] val Integer value to be printed.
  * \return Always one FIXME
@@ -46,9 +45,9 @@ extern "C" DECLSPEC double writeflt(double val);
  * it works like the C printf function and uses the same format string definition.
  * \param[in] str  The format string.
  */
-extern "C" DECLSPEC void write(char* str, ...);
+extern "C" DECLSPEC void write(char *str, ...);
 
 /*! Prints formated string like printf but with a CR/'New line'
  * \param[in] str  The format string.
  */
-extern "C" DECLSPEC void writeln(char* str, ...);
+extern "C" DECLSPEC void writeln(char *str, ...);

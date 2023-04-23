@@ -20,7 +20,7 @@ block itrfibonacci(let n) : int
     int currNumber
 
     int i = 1
-    while i < n
+    wloop i < n
         i = i + 1
         currNumber = prevPrev + prev
         prevPrev = prev

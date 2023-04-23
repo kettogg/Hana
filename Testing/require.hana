@@ -1,0 +1,12 @@
+require require_this.hana
+
+writeint(value)
+
+sayHi()
+
+cat myCat
+
+myCat._init("mio", 2)
+myCat._sayMeow()
+
+

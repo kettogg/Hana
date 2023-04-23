@@ -1,0 +1,21 @@
+
+block cat
+	string name
+	int age
+	block _init(string name, int age)
+		self.name = name
+		self.age = age
+	block _getname() : string
+		return self.name
+	block _getage() : int
+		return self.age
+	block _sayhi()
+		writeln("Meow, I am %s, %d years old.", self.name, self.age)
+		return
+
+
+cat myCat
+
+myCat._init("mio", 2)
+myCat._sayhi()
+

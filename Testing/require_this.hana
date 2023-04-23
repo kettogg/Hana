@@ -1,0 +1,23 @@
+-- This file is required by 'require.hana'
+
+let value = 10
+value = value + 40
+
+block sayHi()
+	writeln("Hi from \'require_this.hana\'")
+
+-- Can also create a block class and require it in 'require.hana'
+
+block cat
+	string name
+	int age
+	block _init(string name, int age)
+		self.name = name
+		self.age = age
+	block _geName() : string
+		return self.name
+	block _getAge() : int
+		return self.age
+	block _sayMeow()
+		writeln("Meow, I am %s, %d years old.", self.name, self.age)
+

@@ -172,7 +172,7 @@ require             BEGIN(req);
 "or"                    return TOKEN(TOR);
 "block"                 return TOKEN(TDEF);
 "let"                   return TOKEN(TVAR);
-"while"                 return TOKEN(TWHILE);
+"wloop"                 return TOKEN(TWHILE);
 "true"                  SAVE_BOOLEAN; return TBOOL;
 "false"                 SAVE_BOOLEAN; return TBOOL;
 --.*                    /* Single line comment */

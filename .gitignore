@@ -1,9 +1,8 @@
 *.vscode
 *.output
-Build/
 build/
 *.llvm
-config.h
+Hana/config.h
 doxygen-awesome-css/
 Doxyfile
 cmake-build-debug/

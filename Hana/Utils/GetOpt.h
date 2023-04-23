@@ -30,39 +30,45 @@
 class GetOpt
 {
 public:
+	GetOpt(int argc, char *argv[], const std::string optstring, const std::string filename = "");
+	std::string get() { return optionArgument; }
+	std::string error() { return errorText; }
+	size_t getIndex() { return index; }
+	void reset() { index = 1; };
+	char operator()();
+	std::vector<std::string> getRemainingArguments();
 
-   GetOpt( int argc, char* argv[], const std::string optstring, const std::string filename = "" );
-   std::string get() { return optionArgument; }
-   std::string error() { return errorText; }
-   size_t getIndex() { return index; }
-   void reset() { index = 1; };
-   char operator()();
-   std::vector<std::string> getRemainingArguments();
+	class iterator
+	{
+	public:
+		iterator(GetOpt *getopt) : getopt(getopt), position(1u){};
+		iterator(int pos) : position(pos){};
+		iterator &operator++()
+		{
+			++position;
+			return *this;
+		} // prefix
+		bool operator!=(iterator rhs)
+		{
+			return position != rhs.getopt->argCount;
+		}
+		char operator*();
 
-   class iterator
-   {
-   public:
-      iterator( GetOpt* getopt ) : getopt( getopt ), position( 1u ) {};
-      iterator( int pos ) : position( pos ) {};
-      iterator& operator++() { ++position; return *this; }  // prefix
-      bool operator!=(iterator rhs) { 
-         return position != rhs.getopt->argCount; 
-      }
-      char operator*();
-   private:
-      size_t  position{0};
-      GetOpt* getopt{nullptr};
-   };
-   iterator begin() { return iterator( this ); }
-   iterator end() { return iterator( this ); }
-   friend class iterator;
+	private:
+		size_t position{0};
+		GetOpt *getopt{nullptr};
+	};
+	iterator begin() { return iterator(this); }
+	iterator end() { return iterator(this); }
+	friend class iterator;
+
 private:
-   std::string optionArgument; /* Global argument pointer. */
-   size_t index{0};       /* Global argv index. */
-   size_t argCount{0};
-   std::string optionString;
-   std::string errorText;
-   std::vector<std::string> argStrings;
+	std::string optionArgument; /* Global argument pointer. */
+	size_t index{0};			/* Global argv index. */
+	size_t argCount{0};
+	std::string optionString;
+	std::string errorText;
+	std::vector<std::string> argStrings;
 };
 
-#endif  /* GETOPT_H */
+#endif /* GETOPT_H */

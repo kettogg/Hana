@@ -1,0 +1,13 @@
+-- Use wloop for while loop
+
+int j = 1
+
+wloop j<=10
+	writeint(j)
+	j = j + 1
+
+boolean x = j>=10
+if x
+	writeln("\'j\' is greater than 10")
+else
+	writeln("\'j\' is less than 10")
