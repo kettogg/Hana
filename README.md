@@ -37,7 +37,7 @@ writeln("Hello World!")
 <h4 align="left">Run</h4>
 
 Using the hana interpreter
-```sh
+```py
 hana hello.hana
 ```
 
@@ -88,9 +88,11 @@ else《condition》
 ```
 
 <h3 align="center">Comments</h3>
-```
+
+```py
 -- Single line comment, inspired from lua!
 ```
+
 ```py
 --[[
   Multi
