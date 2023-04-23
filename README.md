@@ -36,15 +36,15 @@ as the binary was built on Arch linux with x86 architecture.
 
 <h4 align="left">Create a hana file</h4>
 
-<code>py
+```py
 touch hello.hana && vim hello.hana
-</code>
+```
 
 <br>
 
-<code>py
+```py
 writeln("Hello World!")
-</code>
+```
 
 <h4 align="left">Run</h4>
 
