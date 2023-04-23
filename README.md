@@ -28,7 +28,7 @@ cmake .. && make
 
 <h2 align="center">Usage</h2>
 
-<h4 align="left">Create a hana file - ```hello.hana```</h4>
+<h4 align="left">Create a hana file - <code>hello.hana</code></h4>
 
 ```py
 writeln("Hello World!")
