@@ -34,8 +34,10 @@ as the binary was built on Arch linux with x86 architecture.
 
 <h2 align="center">Usage</h2>
 
-<h4 align="left">Create a hana file - ```hello.hana```</h4>
-
+<h4 align="left">Create a hana file</h4>
+```py
+touch hello.hana && vim hello.hana
+```
 ```py
 writeln("Hello World!")
 ```
