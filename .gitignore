@@ -6,3 +6,4 @@ build/
 config.h
 doxygen-awesome-css/
 Doxyfile
+cmake-build-debug/
