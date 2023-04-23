@@ -1,7 +1,7 @@
 --[[ Calculator program for Hana --]]
 
-fn info()
-    writeln("\n[*] Simple Calculator in Hana")
+block info()
+    writeln("[*] Simple Calculator in Hana")
     writeln("--  Please select an option:")
     writeln("--             1 : Addition")
     writeln("--             2 : Subtract")
@@ -10,44 +10,48 @@ fn info()
     writeln("--             5 : Sine")
     return
 
-fn Add(double x, double y)
+block Add(double x, double y)
     double sum = x + y
-    writefloat(sum)
+    write("%s", "Output: ")
+    writeflt(sum)
     return
 
-fn Sub(double x, double y)
+block Sub(double x, double y)
     double sub = x - y
-    writefloat(sub)
+    write("%s", "Output: ")
+    writeflt(sub)
     return
 
-fn Mul(double x, double y)
+block Mul(double x, double y)
     double mul = x * y
-    writefloat(mul)
+    write("%s", "Output: ")
+    writeflt(mul)
     return
 
-fn Div(int x, int y)
+block Div(int x, int y)
     let div = x/y
-    writeln("%d", div)
+    writeln("Output: %d", div)
     return
 
-fn Sin(double x)
+block Sin(double x)
     double sine = sinus(x)
-    writefloat(sine)
+    write("%s", "Output: ")
+    writeflt(sine)
     return
 
-fn calculator()
+block calculator()
     info()
     let opt = readint()
     if opt==1
-        Add(readfloat(),readfloat())
+        Add(readflt(),readflt())
     if opt==2
-        Sub(readfloat(),readfloat())
+        Sub(readflt(),readflt())
     if opt==3
-        Mul(readfloat(),readfloat())
+        Mul(readflt(),readflt())
     if opt==4
         Div(readint(),readint())
     if opt==5
-        Sin(readfloat())
+        Sin(readflt())
     return
 
 calculator()

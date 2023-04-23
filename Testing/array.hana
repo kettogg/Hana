@@ -1,0 +1,26 @@
+-- List Implementation in Hana
+
+let orbs = [15,20,10,5]
+int second = orbs[1]
+writeint(second)
+
+-- Lsits can contain different datatypes
+
+let void = ["Sataou", 8, true, false, 4+12]
+writeln("[%s, %d, %d, %d, %d]", void[0], void[1], void[2], void[3], void[4])
+
+-- Insertion using << 
+
+void << "Hana"
+writeln("%s", void[5])
+
+-- List in list
+
+let inside = ["Hi", "I", "am", "inside", "the", "void"]
+void << inside
+writeln("%s from the void!", void[6][0])
+
+-- Concat lists
+
+let concat = void + inside
+writeln("%d %d %s %s", concat[1], concat[3], concat[7], concat[12])

@@ -1,4 +1,4 @@
-<h1 align="center">Usage</h1>
+<h1 align="center">Hana</h1>
 Hana is an elegant, clean and minimalistic interpreted programming language inspired from lua, python and javascript &lt;3
 
 ⚠️ *Wip ...*
@@ -11,7 +11,7 @@ Hana is an elegant, clean and minimalistic interpreted programming language insp
 <li>cmake >= 3.12</li>
 <li>flex</li>
 <li>bison</li>
-<li>LLVM (version 14.0.6)</li>
+<li>LLVM (version 10.0.1)</li>
 </ul>
 
 <h2 align="center">Building the interpreter</h2>
@@ -47,7 +47,7 @@ hana hello.hana
 Hello World!
 ```
 
-<h2 align="center">Docuwumentation</h2>
+<h2 align="center">Documentation</h2>
 
 <h3 align="center">General</h3>
 
@@ -57,9 +57,9 @@ Hello World!
 <p align="center">Variables can be decluwuared using the keyword <code>let</code> or by using their types <code>int</code> <code>double</code> <code>string</code> <code>boolean</code>.</p>
 
 ```py
-let baka = 100
-let tehe = "hahahah"
-let chan = 25
+let baka = 99
+string tehe = "hahahah"
+int chan = 25
 let baka = baka + 1
 let chan = chan * 2
 
@@ -68,11 +68,11 @@ writeln("%d", baka)
 writeln("%d", chan) -- Basically just a scanf alias 
 ```
 
-<h4 align="left">Ouwutpuwut</h4>
+<h4 align="left">Output</h4>
 
 ```
-500
-101
+hahahah
+100
 50
 ```
 
@@ -86,6 +86,19 @@ else《condition》
 
 -- No else if supported now
 ```
+
+<h3 align="center">Comments</h3>
+```
+-- Single line comment, inspired from lua!
+```
+```py
+--[[
+  Multi
+  Line
+  Comment
+--]]
+```
+
 
 <h3 align="center">Loops</h3>
 
@@ -109,15 +122,20 @@ UwU
 Boom
 ```
 
-<h3 align="center">Functions</h3>
+<h3 align="center">Functions/Classes</h3>
+
+Function are created by ```block()``` keyword.
+Classes can also be created by same keyword ```block```.
 
 ```py
-fn funcName(《parameters》) : 《returnType》
+block funcName(《parameters》) : 《returnType》
     《statements》
     return 《nothing/something》
 ```
+Refer ```Testing``` for more examples ~
 
 ---
+
 
 > ReadMe [credit](https://github.com/virejdasani/pythOwO)
 

@@ -1,0 +1,112 @@
+[
+{
+  "directory": "/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana",
+  "command": "/usr/bin/c++ -DLIQ_NO_RTTI -DLLVM_NO_DUMP -D_DEBUG -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/home/sylvee/Documents/Proj-Hana/Hana -I/home/sylvee/.local/include -I/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana -g -fdiagnostics-color=always -Wall -fno-rtti -o CMakeFiles/hana.dir/hana.cpp.o -c /home/sylvee/Documents/Proj-Hana/Hana/hana.cpp",
+  "file": "/home/sylvee/Documents/Proj-Hana/Hana/hana.cpp"
+},
+{
+  "directory": "/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana",
+  "command": "/usr/bin/c++ -DLIQ_NO_RTTI -DLLVM_NO_DUMP -D_DEBUG -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/home/sylvee/Documents/Proj-Hana/Hana -I/home/sylvee/.local/include -I/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana -g -fdiagnostics-color=always -Wall -fno-rtti -o CMakeFiles/hana.dir/Lib/Stlib.cpp.o -c /home/sylvee/Documents/Proj-Hana/Hana/Lib/Stlib.cpp",
+  "file": "/home/sylvee/Documents/Proj-Hana/Hana/Lib/Stlib.cpp"
+},
+{
+  "directory": "/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana",
+  "command": "/usr/bin/c++ -DLIQ_NO_RTTI -DLLVM_NO_DUMP -D_DEBUG -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/home/sylvee/Documents/Proj-Hana/Hana -I/home/sylvee/.local/include -I/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana -g -fdiagnostics-color=always -Wall -fno-rtti -o CMakeFiles/hana.dir/Ast/AstNode.cpp.o -c /home/sylvee/Documents/Proj-Hana/Hana/Ast/AstNode.cpp",
+  "file": "/home/sylvee/Documents/Proj-Hana/Hana/Ast/AstNode.cpp"
+},
+{
+  "directory": "/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana",
+  "command": "/usr/bin/c++ -DLIQ_NO_RTTI -DLLVM_NO_DUMP -D_DEBUG -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/home/sylvee/Documents/Proj-Hana/Hana -I/home/sylvee/.local/include -I/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana -g -fdiagnostics-color=always -Wall -fno-rtti -o CMakeFiles/hana.dir/CodeGen/Array.cpp.o -c /home/sylvee/Documents/Proj-Hana/Hana/CodeGen/Array.cpp",
+  "file": "/home/sylvee/Documents/Proj-Hana/Hana/CodeGen/Array.cpp"
+},
+{
+  "directory": "/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana",
+  "command": "/usr/bin/c++ -DLIQ_NO_RTTI -DLLVM_NO_DUMP -D_DEBUG -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/home/sylvee/Documents/Proj-Hana/Hana -I/home/sylvee/.local/include -I/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana -g -fdiagnostics-color=always -Wall -fno-rtti -o CMakeFiles/hana.dir/CodeGen/Declaration.cpp.o -c /home/sylvee/Documents/Proj-Hana/Hana/CodeGen/Declaration.cpp",
+  "file": "/home/sylvee/Documents/Proj-Hana/Hana/CodeGen/Declaration.cpp"
+},
+{
+  "directory": "/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana",
+  "command": "/usr/bin/c++ -DLIQ_NO_RTTI -DLLVM_NO_DUMP -D_DEBUG -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/home/sylvee/Documents/Proj-Hana/Hana -I/home/sylvee/.local/include -I/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana -g -fdiagnostics-color=always -Wall -fno-rtti -o CMakeFiles/hana.dir/CodeGen/FunctionDeclaration.cpp.o -c /home/sylvee/Documents/Proj-Hana/Hana/CodeGen/FunctionDeclaration.cpp",
+  "file": "/home/sylvee/Documents/Proj-Hana/Hana/CodeGen/FunctionDeclaration.cpp"
+},
+{
+  "directory": "/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana",
+  "command": "/usr/bin/c++ -DLIQ_NO_RTTI -DLLVM_NO_DUMP -D_DEBUG -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/home/sylvee/Documents/Proj-Hana/Hana -I/home/sylvee/.local/include -I/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana -g -fdiagnostics-color=always -Wall -fno-rtti -o CMakeFiles/hana.dir/CodeGen/ClassDeclaration.cpp.o -c /home/sylvee/Documents/Proj-Hana/Hana/CodeGen/ClassDeclaration.cpp",
+  "file": "/home/sylvee/Documents/Proj-Hana/Hana/CodeGen/ClassDeclaration.cpp"
+},
+{
+  "directory": "/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana",
+  "command": "/usr/bin/c++ -DLIQ_NO_RTTI -DLLVM_NO_DUMP -D_DEBUG -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/home/sylvee/Documents/Proj-Hana/Hana -I/home/sylvee/.local/include -I/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana -g -fdiagnostics-color=always -Wall -fno-rtti -o CMakeFiles/hana.dir/CodeGen/CodeGenContext.cpp.o -c /home/sylvee/Documents/Proj-Hana/Hana/CodeGen/CodeGenContext.cpp",
+  "file": "/home/sylvee/Documents/Proj-Hana/Hana/CodeGen/CodeGenContext.cpp"
+},
+{
+  "directory": "/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana",
+  "command": "/usr/bin/c++ -DLIQ_NO_RTTI -DLLVM_NO_DUMP -D_DEBUG -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/home/sylvee/Documents/Proj-Hana/Hana -I/home/sylvee/.local/include -I/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana -g -fdiagnostics-color=always -Wall -fno-rtti -o CMakeFiles/hana.dir/Visitor/VisitorSyntaxCheck.cpp.o -c /home/sylvee/Documents/Proj-Hana/Hana/Visitor/VisitorSyntaxCheck.cpp",
+  "file": "/home/sylvee/Documents/Proj-Hana/Hana/Visitor/VisitorSyntaxCheck.cpp"
+},
+{
+  "directory": "/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana",
+  "command": "/usr/bin/c++ -DLIQ_NO_RTTI -DLLVM_NO_DUMP -D_DEBUG -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/home/sylvee/Documents/Proj-Hana/Hana -I/home/sylvee/.local/include -I/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana -g -fdiagnostics-color=always -Wall -fno-rtti -o CMakeFiles/hana.dir/Visitor/VisitorPrettyPrint.cpp.o -c /home/sylvee/Documents/Proj-Hana/Hana/Visitor/VisitorPrettyPrint.cpp",
+  "file": "/home/sylvee/Documents/Proj-Hana/Hana/Visitor/VisitorPrettyPrint.cpp"
+},
+{
+  "directory": "/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana",
+  "command": "/usr/bin/c++ -DLIQ_NO_RTTI -DLLVM_NO_DUMP -D_DEBUG -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/home/sylvee/Documents/Proj-Hana/Hana -I/home/sylvee/.local/include -I/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana -g -fdiagnostics-color=always -Wall -fno-rtti -o CMakeFiles/hana.dir/Utils/GetOpt.cpp.o -c /home/sylvee/Documents/Proj-Hana/Hana/Utils/GetOpt.cpp",
+  "file": "/home/sylvee/Documents/Proj-Hana/Hana/Utils/GetOpt.cpp"
+},
+{
+  "directory": "/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana",
+  "command": "/usr/bin/c++ -DLIQ_NO_RTTI -DLLVM_NO_DUMP -D_DEBUG -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/home/sylvee/Documents/Proj-Hana/Hana -I/home/sylvee/.local/include -I/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana -g -fdiagnostics-color=always -Wall -fno-rtti -o CMakeFiles/hana.dir/CodeGen/Range.cpp.o -c /home/sylvee/Documents/Proj-Hana/Hana/CodeGen/Range.cpp",
+  "file": "/home/sylvee/Documents/Proj-Hana/Hana/CodeGen/Range.cpp"
+},
+{
+  "directory": "/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana",
+  "command": "/usr/bin/c++ -DLIQ_NO_RTTI -DLLVM_NO_DUMP -D_DEBUG -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/home/sylvee/Documents/Proj-Hana/Hana -I/home/sylvee/.local/include -I/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana -g -fdiagnostics-color=always -Wall -fno-rtti -o CMakeFiles/hana.dir/Visitor/BinaryOperator.cpp.o -c /home/sylvee/Documents/Proj-Hana/Hana/Visitor/BinaryOperator.cpp",
+  "file": "/home/sylvee/Documents/Proj-Hana/Hana/Visitor/BinaryOperator.cpp"
+},
+{
+  "directory": "/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana",
+  "command": "/usr/bin/c++ -DLIQ_NO_RTTI -DLLVM_NO_DUMP -D_DEBUG -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/home/sylvee/Documents/Proj-Hana/Hana -I/home/sylvee/.local/include -I/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana -g -fdiagnostics-color=always -Wall -fno-rtti -o CMakeFiles/hana.dir/CodeGen/UnaryOperator.cpp.o -c /home/sylvee/Documents/Proj-Hana/Hana/CodeGen/UnaryOperator.cpp",
+  "file": "/home/sylvee/Documents/Proj-Hana/Hana/CodeGen/UnaryOperator.cpp"
+},
+{
+  "directory": "/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana",
+  "command": "/usr/bin/c++ -DLIQ_NO_RTTI -DLLVM_NO_DUMP -D_DEBUG -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/home/sylvee/Documents/Proj-Hana/Hana -I/home/sylvee/.local/include -I/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana -g -fdiagnostics-color=always -Wall -fno-rtti -o CMakeFiles/hana.dir/CodeGen/CompareOperator.cpp.o -c /home/sylvee/Documents/Proj-Hana/Hana/CodeGen/CompareOperator.cpp",
+  "file": "/home/sylvee/Documents/Proj-Hana/Hana/CodeGen/CompareOperator.cpp"
+},
+{
+  "directory": "/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana",
+  "command": "/usr/bin/c++ -DLIQ_NO_RTTI -DLLVM_NO_DUMP -D_DEBUG -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/home/sylvee/Documents/Proj-Hana/Hana -I/home/sylvee/.local/include -I/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana -g -fdiagnostics-color=always -Wall -fno-rtti -o CMakeFiles/hana.dir/CodeGen/Return.cpp.o -c /home/sylvee/Documents/Proj-Hana/Hana/CodeGen/Return.cpp",
+  "file": "/home/sylvee/Documents/Proj-Hana/Hana/CodeGen/Return.cpp"
+},
+{
+  "directory": "/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana",
+  "command": "/usr/bin/c++ -DLIQ_NO_RTTI -DLLVM_NO_DUMP -D_DEBUG -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/home/sylvee/Documents/Proj-Hana/Hana -I/home/sylvee/.local/include -I/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana -g -fdiagnostics-color=always -Wall -fno-rtti -o CMakeFiles/hana.dir/CodeGen/WhileLoop.cpp.o -c /home/sylvee/Documents/Proj-Hana/Hana/CodeGen/WhileLoop.cpp",
+  "file": "/home/sylvee/Documents/Proj-Hana/Hana/CodeGen/WhileLoop.cpp"
+},
+{
+  "directory": "/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana",
+  "command": "/usr/bin/c++ -DLIQ_NO_RTTI -DLLVM_NO_DUMP -D_DEBUG -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/home/sylvee/Documents/Proj-Hana/Hana -I/home/sylvee/.local/include -I/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana -g -fdiagnostics-color=always -Wall -fno-rtti -o CMakeFiles/hana.dir/CodeGen/Conditional.cpp.o -c /home/sylvee/Documents/Proj-Hana/Hana/CodeGen/Conditional.cpp",
+  "file": "/home/sylvee/Documents/Proj-Hana/Hana/CodeGen/Conditional.cpp"
+},
+{
+  "directory": "/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana",
+  "command": "/usr/bin/c++ -DLIQ_NO_RTTI -DLLVM_NO_DUMP -D_DEBUG -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/home/sylvee/Documents/Proj-Hana/Hana -I/home/sylvee/.local/include -I/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana -g -fdiagnostics-color=always -Wall -fno-rtti -o CMakeFiles/hana.dir/CodeGen/Assignment.cpp.o -c /home/sylvee/Documents/Proj-Hana/Hana/CodeGen/Assignment.cpp",
+  "file": "/home/sylvee/Documents/Proj-Hana/Hana/CodeGen/Assignment.cpp"
+},
+{
+  "directory": "/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana",
+  "command": "/usr/bin/c++ -DLIQ_NO_RTTI -DLLVM_NO_DUMP -D_DEBUG -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/home/sylvee/Documents/Proj-Hana/Hana -I/home/sylvee/.local/include -I/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana -g -fdiagnostics-color=always -Wall -fno-rtti -o CMakeFiles/hana.dir/CodeGen/MethodCall.cpp.o -c /home/sylvee/Documents/Proj-Hana/Hana/CodeGen/MethodCall.cpp",
+  "file": "/home/sylvee/Documents/Proj-Hana/Hana/CodeGen/MethodCall.cpp"
+},
+{
+  "directory": "/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana",
+  "command": "/usr/bin/c++ -DLIQ_NO_RTTI -DLLVM_NO_DUMP -D_DEBUG -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/home/sylvee/Documents/Proj-Hana/Hana -I/home/sylvee/.local/include -I/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana -g -fdiagnostics-color=always -Wall -fno-rtti -o CMakeFiles/hana.dir/parser.cpp.o -c /home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana/parser.cpp",
+  "file": "/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana/parser.cpp"
+},
+{
+  "directory": "/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana",
+  "command": "/usr/bin/c++ -DLIQ_NO_RTTI -DLLVM_NO_DUMP -D_DEBUG -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/home/sylvee/Documents/Proj-Hana/Hana -I/home/sylvee/.local/include -I/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana -g -fdiagnostics-color=always -Wall -fno-rtti -o CMakeFiles/hana.dir/tokens.cpp.o -c /home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana/tokens.cpp",
+  "file": "/home/sylvee/Documents/Proj-Hana/cmake-build-debug/Hana/tokens.cpp"
+}
+]

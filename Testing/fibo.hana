@@ -2,7 +2,7 @@
 
 -- Using Recursion
 
-fn recfibonacci(let n) : int
+block recfibonacci(let n) : int
     if n <= 1
         return n
     else
@@ -10,7 +10,7 @@ fn recfibonacci(let n) : int
         let f2 = recfibonacci(n - 2)
         return f1 + f2
 
-fn itrfibonacci(let n) : int
+block itrfibonacci(let n) : int
     if n == 0
         return n
     if n == 1
@@ -28,7 +28,7 @@ fn itrfibonacci(let n) : int
     return currNumber
 
 
-writeln("\n[*] Fibonacci in Hana")
+writeln("[*] Fibonacci in Hana")
 write("-- Enter a Number: ")
 let num = readint()
 

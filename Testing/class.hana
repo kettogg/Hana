@@ -1,0 +1,29 @@
+--[[ Classes can be created by the same keyword 'block' --]]
+
+block Player
+	string name
+	int lvl
+	block init(string name, int lvl)
+		self.name = name
+		self.lvl = lvl
+	block getlvl() : int
+		return self.lvl
+	block getname() : string
+		return self.name
+	block bonus(int inc)
+		self.lvl = self.lvl + inc
+	block punish(int dec)
+		self.lvl = self.lvl - dec
+		
+Player py
+
+py.init("Sataou", 25)
+
+writeln("Name: %s (Lvl: %d)", py.getname(), py.getlvl())
+
+py.punish(5)
+writeln("Lvl after punishing: %d", py.getlvl())
+
+py.bonus(20)
+writeln("Lvl after reward: %d", py.getlvl())
+	 
