@@ -1,7 +1,7 @@
 <h1 align="center">Hana</h1>
 Hana is an elegant, clean and minimalistic interpreted programming language inspired from lua, python and javascript &lt;3
 
-⚠️ *Wip ...*
+⚠️  *WIP ...*
 
 *For now Doxygen docs* - [🌸 Hana Documentation](https://syylvette.github.io/Hana/)
 
@@ -39,8 +39,6 @@ as the binary was built on Arch linux with x86 architecture.
 ```py
 touch hello.hana && vim hello.hana
 ```
-
-<br>
 
 ```py
 writeln("Hello World!")
