@@ -1,6 +1,7 @@
 *.vscode
 *.output
 build/
+*.idea/
 *.llvm
 Hana/config.h
 doxygen-awesome-css/

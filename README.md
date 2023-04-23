@@ -8,9 +8,9 @@ Hana is an elegant, clean and minimalistic interpreted programming language insp
 <h2 align="center">Deps</h2>
 
 <ul>
-<li>cmake >= 3.12</li>
-<li>flex</li>
-<li>bison</li>
+<li>Cmake >= 3.12</li>
+<li>Flex</li>
+<li>Bison</li>
 <li>LLVM (version 10.0.1)</li>
 </ul>
 
@@ -25,10 +25,16 @@ cmake .. && make
 ## Generates a binary 'hana' in Build/Hana directory
 ./hana -h  ## Lists the usage
 ```
+Builiding the binary might take few minutes depending on your Pc.
+<br>
+You can also get the binary from Releases, but it will probably only work on Arch or Arch other based distros,
+as the binary was built on Arch linux with x86 architecture.
+<br>
+
 
 <h2 align="center">Usage</h2>
 
-<h4 align="left">Create a hana file - <code>hello.hana</code></h4>
+<h4 align="left">Create a hana file - ```hello.hana```</h4>
 
 ```py
 writeln("Hello World!")
@@ -139,7 +145,10 @@ Refer ```Testing``` for more examples ~
 ---
 
 
-> ReadMe [credit](https://github.com/virejdasani/pythOwO)
+> README [Credit](https://github.com/virejdasani/pythOwO) <br>
+> Reference Language [Kaleidoscope](https://llvm.org/docs/tutorial/) <br>
+> Other References [ghaiklor/llvm-kaleidoscope](https://github.com/ghaiklor/llvm-kaleidoscope) <br>
+> Guide https://gnuu.org/2009/09/18/writing-your-own-toy-compiler/
 
 
 
