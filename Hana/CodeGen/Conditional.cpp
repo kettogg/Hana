@@ -20,12 +20,12 @@ Value* Conditional::codeGen(CodeGenContext& context)
 {
    Value* comp = cmpOp->codeGen(context);
    if (comp == nullptr) {
-      Node::printError("Code generation for compare operator of the conditional statement failed.");
+      Node::printError("** [Err] Code generation for compare operator of the conditional statement failed.");
       context.addError();
       return nullptr;
    }
    if (!comp->getType()->isIntegerTy(1)) {
-      Node::printError("If condition doesn't result in a boolean expression.");
+      Node::printError("** [Err] If condition doesn't result in a boolean expression.");
       context.addError();
       return nullptr;
    }

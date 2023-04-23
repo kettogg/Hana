@@ -2,9 +2,11 @@ cmake_minimum_required(VERSION 3.12)
 
 project(Hana)
 
-message(STATUS "====================")
-message(STATUS "  CONFIGURING Hana")
-message(STATUS "====================")
+message(STATUS "======================")
+message(STATUS "[*] BUILDING Hana ...")
+message(STATUS "======================")
+
+set(LLVM_ROOT "/home/sylvee/.local")
 
 macro(replace_flags flag newflag)
     FOREACH(flag_var CMAKE_CXX_FLAGS CMAKE_CXX_FLAGS_DEBUG CMAKE_CXX_FLAGS_RELEASE)
@@ -14,25 +16,13 @@ macro(replace_flags flag newflag)
     ENDFOREACH(flag_var)
 endmacro()
 
-# Setup the make environment. #
-# ###############################
-# Activate very verbose makefiles.
 set(CMAKE_VERBOSE_MAKEFILE ON)
-
-# Allow else() and endif() constructs (with empty parentheses)
 set(CMAKE_ALLOW_LOOSE_LOOP_CONSTRUCTS true)
-
-SET(CMAKE_BUILD_TYPE Debug CACHE STRING "Default to debug" FORCE)
-
-# Setup the cmake directory containing numerous cmake scripts and macros.
 set(CMAKE_MODULE_PATH "${Hana_SOURCE_DIR}/cmake")
 
-# Search for the different needed libs. #
-# ########################################
 FIND_PACKAGE(FLEX)
 FIND_PACKAGE(BISON)
 
-# We incorporate the CMake features provided by LLVM:
 if($ENV{LLVM_ROOT})
     set(LLVM_ROOT $ENV{LLVM_ROOT})
 endif()
@@ -46,30 +36,16 @@ else()
 endif()
 
 include(LLVMConfig)
-message(STATUS "Found LLVM Package Version: ${LLVM_PACKAGE_VERSION}")
-message(STATUS "LLVM Built-type: ${LLVM_BUILD_TYPE}")
+message(STATUS "Found LLVM Package Version:${LLVM_PACKAGE_VERSION}")
+message(STATUS "LLVM Built type : ${LLVM_BUILD_TYPE}")
 string(REGEX MATCH "[0-9]+\\.[0-9]+" LLVM_VER ${LLVM_PACKAGE_VERSION})
 
-if(NOT ${LLVM_VER} VERSION_EQUAL "14.0")
-    message(WARNING "LLVM version ${LLVM_VER} is not tested.")
-endif()
+llvm_map_components_to_libnames(REQ_LLVM_LIBRARIES mcjit interpreter native ipo) # JIT Support
 
-if(MSVC)
-    if(NOT CMAKE_CL_64)
-        message(FATAL_ERROR "Currently only 64bit compilation is supported!")
-    endif()
-endif()
-
-# Let's suppose we want to build a JIT compiler with support for
-# binary code :
-llvm_map_components_to_libnames(REQ_LLVM_LIBRARIES mcjit interpreter native ipo)
-
-# Put all source files into one variable. #
-# #########################################
-set(SOURCES
-    hana.cpp
-        Builtins/buildins.cpp
-        AST/AstNode.cpp
+set(HANA_SOURCES
+        hana.cpp
+        Lib/Stlib.cpp
+        Ast/AstNode.cpp
         CodeGen/Array.cpp
         CodeGen/Declaration.cpp
         CodeGen/FunctionDeclaration.cpp
@@ -77,11 +53,11 @@ set(SOURCES
         CodeGen/CodeGenContext.cpp
         Visitor/VisitorSyntaxCheck.cpp
         Visitor/VisitorPrettyPrint.cpp
-        Lexer/tokens.l
-        Parser/parser.y
-        CodeGen/GetOpt.cpp
+    tokens.l
+    parser.y
+        Utils/GetOpt.cpp
         CodeGen/Range.cpp
-        CodeGen/BinaryOperator.cpp
+        Visitor/BinaryOperator.cpp
         CodeGen/UnaryOperator.cpp
         CodeGen/CompareOperator.cpp
         CodeGen/Return.cpp
@@ -91,9 +67,9 @@ set(SOURCES
         CodeGen/MethodCall.cpp
 )
 
-set(HEADERS
-        Builtins/buildins.h
-        AST/AstNode.h
+set(HANA_HEADERS
+        Lib/Stlib.h
+        Ast/AstNode.h
         CodeGen/Array.h
         CodeGen/Declaration.h
         CodeGen/FunctionDeclaration.h
@@ -102,7 +78,7 @@ set(HEADERS
         Visitor/Visitor.h
         Visitor/VisitorSyntaxCheck.h
         Visitor/VisitorPrettyPrint.h
-        CodeGen/GetOpt.h
+        Utils/GetOpt.h
         CodeGen/BinaryOperator.h
         CodeGen/UnaryOperator.h
         CodeGen/CompareOperator.h
@@ -114,17 +90,22 @@ set(HEADERS
         CodeGen/MethodCall.h
 )
 
-set(VER_MAJ 0)
-set(VER_MIN 2)
-set(VER_REV 0)
+if(MSVC)
+    source_group(Header\ Files FILES ${HANA_HEADERS})
+    source_group(Source\ Files FILES ${HANA_SOURCES})
+endif()
+
+set(VER_MAJ 1)
+set(VER_MIN 1)
+set(VER_REV 2)
 
 configure_file(config.in ${Hana_SOURCE_DIR}/config.h)
 
-BISON_TARGET(HanaParser Parser/parser.y ${CMAKE_CURRENT_BINARY_DIR}/parser.cpp COMPILE_FLAGS --report=solved COMPILE_FLAGS --feature=fixit)
-FLEX_TARGET(HanaScanner Lexer/tokens.l ${CMAKE_CURRENT_BINARY_DIR}/tokens.cpp)
-ADD_FLEX_BISON_DEPENDENCY(HanaScanner HanaParser)
+BISON_TARGET(Parser parser.y ${CMAKE_CURRENT_BINARY_DIR}/parser.cpp COMPILE_FLAGS --report=solved COMPILE_FLAGS --feature=fixit)
+FLEX_TARGET(Scanner tokens.l ${CMAKE_CURRENT_BINARY_DIR}/tokens.cpp)
+ADD_FLEX_BISON_DEPENDENCY(Scanner Parser)
 
-add_executable(hana ${SOURCES} ${HEADERS} ${BISON_HanaParser_OUTPUTS} ${FLEX_HanaScanner_OUTPUTS})
+add_executable(hana ${HANA_SOURCES} ${HANA_HEADERS} ${BISON_Parser_OUTPUTS} ${FLEX_Scanner_OUTPUTS})
 
 # Compiler-dependent and build-depended flags:
 if(CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUCXX)
@@ -158,7 +139,7 @@ if("${LLVM_BUILD_TYPE}" MATCHES "Release|RelWithDebInfo|MinSizeRel")
 endif()
 
 if(NOT LLVM_ENABLE_RTTI)
-    target_compile_definitions(hana PRIVATE HANA_NO_RTTI)
+    target_compile_definitions(hana PRIVATE LIQ_NO_RTTI)
 
     if(MSVC)
         target_compile_options(hana PRIVATE /GR-)
@@ -179,8 +160,3 @@ target_compile_features(hana PRIVATE cxx_std_17)
 
 # Finally, we link the LLVM libraries to our executable:
 target_link_libraries(hana ${REQ_LLVM_LIBRARIES})
-
-if(MSVC)
-    source_group(Header\ Files FILES ${HEADERS})
-    source_group(Source\ Files FILES ${SOURCES})
-endif()

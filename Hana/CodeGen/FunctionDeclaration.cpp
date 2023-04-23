@@ -163,7 +163,7 @@ Value* FunctionDeclaration::codeGen( CodeGenContext& context )
     if( type->getName() == "var" ) {
         if( retTy->isLabelTy() || retTy->isMetadataTy() ) {
             context.endScope();
-            Node::printError( location, " Function w/ var return type and multiple return statements are not supported: " + id->getName() + "(...)" );
+            Node::printError( location, "** [ERR] Function w/ var return type and multiple return statements are not supported: " + id->getName() + "(...)" );
             context.addError();
             return nullptr;
         }
@@ -212,7 +212,7 @@ Value* FunctionDeclaration::codeGen( CodeGenContext& context )
 
         // Clone the function to the new (real) function w/ the correct return type.
         SmallVector<ReturnInst*, 8> Returns;  // Ignore returns cloned.
-        CloneFunctionInto( functionNew, function, VMap, CloneFunctionChangeType::LocalChangesOnly, Returns );
+        CloneFunctionInto( functionNew, function, VMap, false, Returns );
 
         // Remove the old one.
         function->eraseFromParent();

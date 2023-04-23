@@ -1,5 +1,5 @@
 #pragma once
-#include "../AST/AstNode.h"
+#include "Ast/AstNode.h"
 
 namespace hana
 {

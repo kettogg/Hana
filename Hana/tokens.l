@@ -1,7 +1,7 @@
 %{
 #include <string>
 #include <stack>
-#include "AST/AstNode.h"
+#include "Ast/AstNode.h"
 #include "parser.hpp"
 #define SAVE_TOKEN yylval.string = new std::string(yytext, yyleng)
 #define SAVE_INTEGER yylval.integer = std::stoll(std::string(yytext, yyleng))
@@ -20,16 +20,16 @@ int yycolumn = 1;
 #define YYERROR_VERBOSE 1
 int yyerror(char const * s )
 {
-    printf("[*] ERROR %s in '%s' at line %d col %d\n", s, yytext, yylineno, yycolumn);
+    printf("ERROR %s in '%s' at line %d col %d\n", s, yytext, yylineno, yycolumn);
     printf("  parsed %s %d.%d-%d.%d\n", yylloc.file_name.c_str(), yylloc.first_line, yylloc.first_column, yylloc.last_line, yylloc.last_column);
     return 1;
 }
 
 std::string g_str;
 
-/* globals to track current indentation */
-int current_line_indent = 0;   /* indentation of the current line */
-int indent_level = 0;          /* indentation level passed to the parser */
+/* Globals to track current indentation */
+int current_line_indent = 0;   /* Indentation of the current line */
+int indent_level = 0;          /* Indentation level passed to the parser */
 std::stack<int> curr_indents;
 int first_time = 1 ;
 
@@ -73,8 +73,8 @@ number  {num1}|{num2}
 
             
 require             BEGIN(req);
-<req>[ \t]*        /* Eat whitespace */
-<req>[^ \t\n\r]+   { /* Get the required file name */
+<req>[ \t]*        /* Rm Whitespace */
+<req>[^ \t\n\r]+   { /* Get Filename */
                     std::string fileName = yytext;
                     std::size_t pos = fileName.find(".hana");
                     if( pos == std::string::npos ) {
@@ -86,7 +86,7 @@ require             BEGIN(req);
                             break;
                     }
                     if ( ! yyin ) {
-                       printf( "[*] Err: %s in %s line %d\n", (std::string("Failed to load import file ") + fileName).c_str(), fileNames.top().c_str(), yylineno );
+                       printf( "%s in %s line %d\n", (std::string("Failed to load import file ") + fileName).c_str(), fileNames.top().c_str(), yylineno );
                        parsing_error = 1;
                        yyterminate();
                     } else {
@@ -100,10 +100,10 @@ require             BEGIN(req);
                     }
      
 
-\-\-\[\[                BEGIN(comment);
-<comment>\-\-\]\].*     BEGIN(normal);
-<comment>.*         ;   /* Brrhhhh*/
-<comment>\n         ;   /* Brrhhhh */
+\-\-\[\[            BEGIN(comment);
+<comment>\-\-\]\].* BEGIN(normal);
+<comment>.*         ;/* Eat */
+<comment>\n         ;/* Eat */
 
 \"      g_str = ""; BEGIN(str);
 '       g_str = ""; BEGIN(qstr);
@@ -163,20 +163,20 @@ require             BEGIN(req);
                  }
                   
 
-\r                      /* Carriage return are ignored */
+\r                      /* Ignore Carriage return */
 "if"                    return TOKEN(TIF);
 "else"                  return TOKEN(TELSE);
 "return"                return TOKEN(TRETURN);
 "not"                   return TOKEN(TNOT);
 "and"                   return TOKEN(TAND);
 "or"                    return TOKEN(TOR);
-"fn"                    return TOKEN(TFUNC);
+"block"                 return TOKEN(TDEF);
 "let"                   return TOKEN(TVAR);
 "while"                 return TOKEN(TWHILE);
 "true"                  SAVE_BOOLEAN; return TBOOL;
 "false"                 SAVE_BOOLEAN; return TBOOL;
---.*                     /* Comments one line */
-[ \t\n]                 /* Eat whitespace */;
+--.*                    /* Single line comment */
+[ \t\n]                 /* Ignore */;
 [a-zA-Z_][a-zA-Z0-9_&%\$\?\-]*  SAVE_TOKEN; return TIDENTIFIER;
 -?[0-9]+                SAVE_INTEGER; return TINTEGER;
 {number}                SAVE_NUMBER; return TDOUBLE;
@@ -201,6 +201,6 @@ require             BEGIN(req);
 ":"                     return ':';
 "["                     return '[';
 "]"                     return ']';
-.                       printf("[*] Err: At line %d, len %d Unknown token '%s' !\n", yylineno, yyleng, yytext); yyterminate();
+.                       printf("[*] Error: At line %d, len %d Unknown token '%s' !\n", yylineno, yyleng, yytext); yyterminate();
 
 %%

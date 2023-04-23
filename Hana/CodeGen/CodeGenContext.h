@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../config.h"
+#include "config.h"
 
 #include <vector>
 #include <map>
@@ -31,9 +31,10 @@
 #pragma warning(pop)
 #endif
 
-#include "../AST/AstNode.h"
+#include "Ast/AstNode.h"
 
-namespace hana {
+namespace hana
+{
 ///< Used to keep track the context of a code block.
 enum class ScopeType {
    Class,
@@ -60,29 +61,29 @@ class CodeGenBlock
 public:
    CodeGenBlock(llvm::BasicBlock* bb) { bblock = bb; }
    ~CodeGenBlock() {}
-   void setCodeBlock(llvm::BasicBlock* bb) { bblock = bb; }
+   void              setCodeBlock(llvm::BasicBlock* bb) { bblock = bb; }
    llvm::BasicBlock* currentBlock() { return bblock; }
-   ValueNames& getValueNames() { return locals; }
-   VariableTypeMap& getTypeMap() { return types; }
+   ValueNames&       getValueNames() { return locals; }
+   VariableTypeMap&  getTypeMap() { return types; }
 
 private:
-   llvm::BasicBlock* bblock {nullptr};
-   ValueNames locals;
-   VariableTypeMap types;
+   llvm::BasicBlock* bblock{nullptr};
+   ValueNames        locals;
+   VariableTypeMap   types;
 };
 
 ///! The context of the current compiling process.
 class CodeGenContext
 {
 public:
-   llvm::Value* varStruct {nullptr}; ///< Hold the alloc of the structure variable (class object). TODO move it to a better place.
-   bool verbose {false};             ///< Verbose output
-   bool debug {false};               ///< Dump the generated LLVM byte code.
+   llvm::Value* varStruct{nullptr}; ///< Hold the alloc of the structure variable (class object). TODO move it to a better place.
+   bool verbose {false};            ///< Verbose output
+   bool debug {false};              ///< Dump the generated LLVM byte code.
 
-   CodeGenContext(std::ostream& outs);
+   CodeGenContext(std::ostream & outs);
    ~CodeGenContext() { llvm::llvm_shutdown(); }
 
-   llvm::Module* getModule() const { return module; }
+   llvm::Module*      getModule() const { return module; }
 
    llvm::LLVMContext& getGlobalContext() { return llvmContext; }
 
@@ -90,7 +91,7 @@ public:
     * \param[in] bb         The basic block containing of the new scope. If nullptr then a new block is created.
     * \param[in] scopeType  Type of scope @see ScopeType
     */
-   void newScope(llvm::BasicBlock* bb = nullptr, ScopeType scopeType = ScopeType::CodeBlock);
+   void               newScope(llvm::BasicBlock* bb = nullptr, ScopeType scopeType = ScopeType::CodeBlock);
 
    /*! Leaves current scope, the previous one will be active now.*/
    void endScope();
@@ -105,13 +106,13 @@ public:
    llvm::BasicBlock* getInsertPoint() { return currentBlock(); }
 
    /*! Compile the AST into a module */
-   bool generateCode(class Block& root);
+   bool generateCode(class Block & root);
 
    /*! Executes the AST by running the main function */
    llvm::GenericValue runCode();
 
    /*! Prints how the code will be generated */
-   void printCodeGeneration(class Block& root, std::ostream& outs);
+   void printCodeGeneration(class Block & root, std::ostream & outs);
 
    /*! Get the local variable names (of current scope). */
    ValueNames& locals() { return codeBlocks.front()->getValueNames(); }
@@ -177,7 +178,7 @@ public:
     * \remark Is used to access the elements via the alloca where the ptr to the ref of the class object is stored.
     *         Means that the ref is stored in a local (stack) variable.
     */
-   llvm::Instruction* getKlassVarAccessInst(std::string klass, std::string name, llvm::AllocaInst* this_ptr);
+   llvm::Instruction* getKlassVarAccessInst(std::string klass, std::string name, llvm::AllocaInst * this_ptr);
 
    /*! Returns the currently processed class definition. */
    std::string getKlassName() { return klassName; }
@@ -192,7 +193,7 @@ public:
    std::string typeNameOf(llvm::Type* type);
 
    /*! Store the init code of the class to be used while creation. */
-   void addKlassInitCode(std::string name, Assignment* assign);
+   void addKlassInitCode(std::string name, Assignment * assign);
 
    /*! Returns the class init code */
    KlassInitCodeAssign& getKlassInitCode(std::string name);
@@ -213,7 +214,7 @@ public:
     * \param[in] root  The root block of the AST.
     * \return true on success.
     */
-   bool preProcessing(class Block& root);
+   bool preProcessing(class Block & root);
 
    /*! Increments the error counter. */
    void addError() { ++errors; }
@@ -238,36 +239,28 @@ public:
    /*! Returns true if a template function is to be generated otherwise false. */
    bool codeGenTheTemplatedFunction() const { return generateTemplatedFunction; }
 
-private:
-   void setCurrentBlock(llvm::BasicBlock* block) { codeBlocks.front()->setCodeBlock(block); }
+ private:
+   void setCurrentBlock(llvm::BasicBlock * block) { codeBlocks.front()->setCodeBlock(block); }
 
    /*! Setup up the built in functions and types:
-    * - write
-    * - writeInt
-    * - sinus
-    * - writeln
-    * -
-    * - read :: NOT WORKING ...
-    * - writeInt :: Basically a getLine that could get a line as string ONLY
-    * - compStr
     */
    void setupBuiltIns();
 
    std::list<CodeGenBlock*> codeBlocks;             ///< List of all code blocks
-   CodeGenBlock* self {nullptr};                    ///< The current code block.
-   std::string klassName;                           ///< The current class definition block
-   llvm::Function* mainFunction {nullptr};          ///< main function
-   llvm::Module* module {nullptr};                  ///< llvm module ...
-   llvm::LLVMContext llvmContext;                   ///< and context
-   KlassAttributes classAttributes;                 ///< List of attributes a class
-   KlassInitCode classInitCode;                     ///< The init code (statements) for each class
+   CodeGenBlock*            self{nullptr};          ///< The current code block.
+   std::string              klassName;              ///< The current class definition block
+   llvm::Function*          mainFunction{nullptr};  ///< main function
+   llvm::Module*            module{nullptr};        ///< llvm module ...
+   llvm::LLVMContext        llvmContext;            ///< and context
+   KlassAttributes          classAttributes;        ///< List of attributes a class
+   KlassInitCode            classInitCode;          ///< The init code (statements) for each class
    std::map<std::string, llvm::Type*> classTypeMap; ///< Maps a class name to its LLVM struct type
-   int errors {0};                                  ///< Count of errors while code gen.
-   ScopeType currentScopeType {ScopeType::CodeBlock};
-   std::ostream& outs;
+   int                      errors{0};              ///< Count of errors while code gen.
+   ScopeType                currentScopeType{ScopeType::CodeBlock};
+   std::ostream&            outs;
    struct buildin_info_t {
-      llvm::Function* f {nullptr};
-      void* addr {nullptr};
+      llvm::Function* f{nullptr};
+      void*           addr{nullptr};
    };
    std::vector<buildin_info_t> builtins;
    llvm::Type* intType {nullptr};
@@ -281,4 +274,4 @@ private:
    bool generateTemplatedFunction {false};
 };
 
-} // namespace hana
+}

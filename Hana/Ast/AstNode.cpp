@@ -1,7 +1,7 @@
 #include <typeinfo>
 #include <sstream>
 #include "AstNode.h"
-#include "../CodeGen/CodeGenContext.h"
+#include "CodeGen/CodeGenContext.h"
 #include "parser.hpp"
 
 
@@ -57,7 +57,7 @@ Value* Identifier::codeGen(CodeGenContext& context)
         // A usual stack variable
         AllocaInst* alloc = context.findVariable(name);
         if (alloc != nullptr) {
-            return new LoadInst(alloc->getAllocatedType(), alloc, name, false, context.currentBlock());
+            return new LoadInst(alloc, name, false, context.currentBlock());
         }
     } else {
         // get this ptr of struct/class etc...
@@ -66,10 +66,10 @@ Value* Identifier::codeGen(CodeGenContext& context)
         if (alloc != nullptr) {
             std::string klassName = context.getType(structName);
             Instruction * ptr = context.getKlassVarAccessInst(klassName, name, alloc);
-            return new LoadInst(ptr->getType()->getNonOpaquePointerElementType(), ptr, name, false, context.currentBlock());
+            return new LoadInst(ptr, name, false, context.currentBlock());
         }
     }
-    Node::printError(location, "undeclared variable " + structName + "::" + name );
+    Node::printError(location, "** [Err] Undeclared variable" + structName + " :: " + name );
     context.addError();
     return nullptr;
 }

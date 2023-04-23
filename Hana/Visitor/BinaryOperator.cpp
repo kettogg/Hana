@@ -1,6 +1,6 @@
-#include "BinaryOperator.h"
-#include "CodeGenContext.h"
-#include "Array.h"
+#include "CodeGen/BinaryOperator.h"
+#include "CodeGen/CodeGenContext.h"
+#include "CodeGen/Array.h"
 #include "parser.hpp"
 
 using namespace std;

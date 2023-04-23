@@ -23,7 +23,7 @@ Value* VariableDeclaration::codeGen(CodeGenContext& context)
 {
     Value* val = nullptr;
     if( context.findVariable(id->getName()) ) {
-        Node::printError(location, " variable '" + id->getName()  + "' already exist\n");
+        Node::printError(location, " Variable '" + id->getName()  + "' already exists!\n");
         context.addError();
         return nullptr;
     }

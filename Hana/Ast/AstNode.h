@@ -1,7 +1,7 @@
 #ifndef INC_ASTNODE_H
 #define INC_ASTNODE_H
 
-#include "../hana.h"
+#include "hana.h"
 
 #include <iostream>
 #include <vector>
@@ -17,16 +17,17 @@
 #include <llvm/IR/DerivedTypes.h>
 
 #if defined(_MSC_VER)
-#pragma warning(pop)
+#pragma warning( pop )
 #endif
 
-#include "../Visitor/Visitor.h"
+#include "Visitor/Visitor.h"
 
-struct YYLTYPE {
-   int first_line {0};
-   int first_column {0};
-   int last_line {0};
-   int last_column {0};
+struct YYLTYPE
+{
+   int         first_line{0};
+   int         first_column{0};
+   int         last_line{0};
+   int         last_column{0};
    std::string file_name;
 };
 
@@ -39,17 +40,30 @@ using ExpressionList = std::vector<class Expression*>;
 using VariableList = std::vector<class VariableDeclaration*>;
 
 /*! Type of the AST node */
-enum class NodeType { expression, variable, klass, function, integer, decimal, string, boolean, identifier, list, range };
+enum class NodeType
+{
+    expression,
+    variable,
+    klass,
+    function,
+    integer,
+    decimal,
+    string,
+    boolean,
+    identifier,
+    list,
+    range
+};
 
 /*! Base class of all nodes */
-class Node
+class Node 
 {
 public:
    virtual ~Node() = default;
 
    /*! Code generation for this node
     * \param[in] context  The context of the code gen run.
-    * \return Generated code as LLVM value.
+    * \return Generated code as LLVM value. 
     */
    virtual llvm::Value* codeGen(CodeGenContext& context) = 0;
 
@@ -68,18 +82,26 @@ public:
     */
    static void printError(YYLTYPE location, std::string msg)
    {
-      std::cerr << location.file_name << ": line " << location.first_line << " column " << location.first_column << "-" << location.last_column << ":" << msg
-                << std::endl;
+      std::cerr
+         << location.file_name
+         << ": Line "
+         << location.first_line << " Column "
+         << location.first_column << "-"
+         << location.last_column << " :"
+         << msg << std::endl;
    }
 
    /*! Prints an error message where no source location is available.
     * \param[in] msg      The message to print.
     */
-   static void printError(std::string msg) { std::cerr << msg << std::endl; }
+   static void printError(std::string msg)
+   {
+      std::cerr << msg << std::endl;
+   }
 };
 
 /*! Represents an expression. */
-class Expression : public Node
+class Expression : public Node 
 {
 public:
    virtual ~Expression() = default;
@@ -92,9 +114,9 @@ class Statement : public Expression
 {
 public:
    virtual ~Statement() = default;
-   NodeType getType() override { return NodeType::expression; }
+   NodeType    getType() override { return NodeType::expression; }
    std::string toString() override { return "Statement"; }
-   void Accept(Visitor& v) override { v.VisitStatement(this); }
+   void        Accept(Visitor& v) override { v.VisitStatement(this); }
 };
 
 /*! Represents an integer. */
@@ -104,8 +126,8 @@ public:
    explicit Integer(long long value) : value(value) {}
    virtual ~Integer() = default;
    llvm::Value* codeGen(CodeGenContext& context) override;
-   NodeType getType() override { return NodeType::integer; }
-   std::string toString() override
+   NodeType     getType() override { return NodeType::integer; }
+   std::string  toString() override
    {
       std::stringstream s;
       s << "integer: " << value;
@@ -114,7 +136,7 @@ public:
    void Accept(Visitor& v) override { v.VisitInteger(this); }
 
 private:
-   long long value {0};
+   long long value{0};
 };
 
 /*! Represents a double. */
@@ -124,8 +146,8 @@ public:
    explicit Double(double value) : value(value) {}
    virtual ~Double() = default;
    llvm::Value* codeGen(CodeGenContext& context) override;
-   NodeType getType() override { return NodeType::decimal; }
-   std::string toString() override
+   NodeType     getType() override { return NodeType::decimal; }
+   std::string  toString() override
    {
       std::stringstream s;
       s << "double: " << value;
@@ -134,7 +156,7 @@ public:
    void Accept(Visitor& v) override { v.VisitDouble(this); }
 
 private:
-   double value {0.};
+   double value{0.};
 };
 
 /*! Represents a string. */
@@ -144,8 +166,8 @@ public:
    explicit String(const std::string& value) : value(value) {}
    virtual ~String() = default;
    llvm::Value* codeGen(CodeGenContext& context) override;
-   NodeType getType() override { return NodeType::string; }
-   std::string toString() override
+   NodeType     getType() override { return NodeType::string; }
+   std::string  toString() override
    {
       std::stringstream s;
       s << "string: '" << value << "'";
@@ -164,8 +186,8 @@ public:
    explicit Boolean(int const value) : boolVal(value) {}
    virtual ~Boolean() = default;
    llvm::Value* codeGen(CodeGenContext& context) override;
-   NodeType getType() override { return NodeType::boolean; }
-   std::string toString() override
+   NodeType     getType() override { return NodeType::boolean; }
+   std::string  toString() override
    {
       std::stringstream s;
       s << "boolean: " << (boolVal == 1 ? "true" : "false");
@@ -174,7 +196,7 @@ public:
    void Accept(Visitor& v) override { v.VisitBoolean(this); }
 
 private:
-   int boolVal {0};
+   int         boolVal{0};
 };
 
 /*! Represents an identifier. */
@@ -187,8 +209,8 @@ public:
    virtual ~Identifier() = default;
 
    llvm::Value* codeGen(CodeGenContext& context) override;
-   NodeType getType() override { return NodeType::identifier; }
-   std::string toString() override
+   NodeType     getType() override { return NodeType::identifier; }
+   std::string  toString() override
    {
       std::stringstream s;
       s << "identifier reference: " << structName << "::" << name;
@@ -198,12 +220,12 @@ public:
 
    std::string getName() const { return name; }
    std::string getStructName() const { return structName; }
-   YYLTYPE getLocation() const { return location; }
+   YYLTYPE     getLocation() const { return location; }
 
 private:
    std::string name;
    std::string structName;
-   YYLTYPE location;
+   YYLTYPE     location;
 };
 
 /*! Represents a block */
@@ -211,19 +233,19 @@ class Block : public Expression
 {
 public:
    StatementList statements;
-
+   
    Block() = default;
    virtual ~Block()
    {
-      for( auto i : statements ) {
+      for(auto i : statements) {
          delete i;
       }
       statements.clear();
    }
 
    llvm::Value* codeGen(CodeGenContext& context) override;
-   NodeType getType() override { return NodeType::expression; }
-   std::string toString() override { return "block "; }
+   NodeType     getType() override { return NodeType::expression; }
+   std::string  toString() override { return "block "; }
    void Accept(Visitor& v) override { v.VisitBlock(this); }
 };
 
@@ -235,15 +257,15 @@ public:
    virtual ~ExpressionStatement() { delete expression; }
 
    llvm::Value* codeGen(CodeGenContext& context) override;
-   NodeType getType() override { return NodeType::expression; }
-   Expression* getExpression() { return expression; }
-   std::string toString() override { return "expression statement "; }
-   void Accept(Visitor& v) override { v.VisitExpressionStatement(this); }
+   NodeType     getType() override { return NodeType::expression; }
+   Expression*  getExpression() { return expression; }
+   std::string  toString() override { return "expression statement "; }
+   void         Accept(Visitor& v) override { v.VisitExpressionStatement(this); }
 
 private:
-   Expression* expression {nullptr};
+   Expression*  expression{nullptr};
 };
 
-} // namespace hana
+}
 
 #endif

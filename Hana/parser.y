@@ -1,11 +1,11 @@
 %code requires {
 
-# define YYLTYPE_IS_DECLARED 1 /* alert the parser that we have our own definition */
+# define YYLTYPE_IS_DECLARED 1
 
 }
 
 %{
-    #include "AST/AstNode.h"
+    #include "Ast/AstNode.h"
     #include "CodeGen/FunctionDeclaration.h"
     #include "CodeGen/ClassDeclaration.h"
     #include "CodeGen/Return.h"
@@ -24,7 +24,7 @@
 
     #include <stdio.h>
     #include <stack>
-    hana::Block *programBlock; /* the top level root node of our final AST */
+    hana::Block *programBlock; /* Root node of our final AST */
 
     extern int yylex();
     int yyerror(char const * s );
@@ -86,7 +86,7 @@
 %token <token> TPLUS TMINUS TMUL TDIV
 %token <token> TNOT TAND TOR
 %token <token> TIF TELSE TWHILE
-%token <token> TFUNC TRETURN TVAR
+%token <token> TDEF TRETURN TVAR
 %token <token> INDENT UNINDENT 
 
 /* Define the type of node our nonterminal symbols represent.
@@ -154,8 +154,8 @@ var_decl : ident ident { $$ = new hana::VariableDeclaration($1, $2, @$); }
          | TVAR ident '=' expr { $$ = new hana::VariableDeclaration($2, $4, @$); }
          ;
 
-func_decl : TFUNC ident '(' func_decl_args ')' ':' ident block { $$ = new hana::FunctionDeclaration($7, $2, $4, $8, @$); }
-          | TFUNC ident '(' func_decl_args ')' block { $$ = new hana::FunctionDeclaration($2, $4, $6, @$); }
+func_decl : TDEF ident '(' func_decl_args ')' ':' ident block { $$ = new hana::FunctionDeclaration($7, $2, $4, $8, @$); }
+          | TDEF ident '(' func_decl_args ')' block { $$ = new hana::FunctionDeclaration($2, $4, $6, @$); }
           ;
 
 func_decl_args : %empty  { $$ = new hana::VariableList(); }
@@ -163,7 +163,7 @@ func_decl_args : %empty  { $$ = new hana::VariableList(); }
           | func_decl_args ',' var_decl { $1->push_back($<var_decl>3); }
           ;
 
-class_decl: TFUNC ident block {$$ = new hana::ClassDeclaration($2, $3); }
+class_decl: TDEF ident block {$$ = new hana::ClassDeclaration($2, $3); }
           ;
 
 return : TRETURN { $$ = new hana::Return(@$); }

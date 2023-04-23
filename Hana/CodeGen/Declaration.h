@@ -1,5 +1,5 @@
 #pragma once
-#include "../AST/AstNode.h"
+#include "Ast/AstNode.h"
 
 namespace hana
 {
@@ -33,7 +33,7 @@ public:
    virtual std::string toString() override
    {
       std::stringstream s;
-      s << "variable declaration for " << id->getName() << " of type " << (type ? type->getName() : "TBD");
+      s << "Variable declaration for " << id->getName() << " of type " << (type ? type->getName() : "TBD");
       return s.str();
    }
    void Accept(Visitor& v) override { v.VisitVariablenDeclaration(this); }
